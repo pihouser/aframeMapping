@@ -1,0 +1,76 @@
+// LOOKUP SINGLE PLAYER SPECIFIC STATS
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX www: <http://www.semanticweb.org/pear/ontologies/2026/0/pc#>
+
+SELECT DISTINCT ?x ?y
+WHERE {
+  www:Thorin_Stonefist ?p ?o;
+  www:hasClass ?x;
+  www:hasAC ?y.
+}
+
+
+// dnd FUESKI query for BaldersGate's Features, which is its a City
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX www: <http://www.semanticweb.org/pear/ontologies/2026/0/11-gis#>
+
+SELECT DISTINCT ?x
+WHERE {
+  www:BaldursGate ?p ?o .
+  www:BaldursGate www:hasFeature ?x .
+}
+
+
+
+// LOOK AC IN DESCENDING ORDER
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX www: <http://www.semanticweb.org/pear/ontologies/2026/0/pc#>
+
+SELECT ?s ?o
+WHERE {
+  ?s www:hasAC ?o;
+    FILTER (?o > 1).
+}
+    ORDER BY DESC(?o)
+
+
+
+
+
+// GET ALL DATA ABOUT 1 SPECFIC THING/CHARACTER
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX www: <http://www.semanticweb.org/pear/ontologies/2026/0/pc#>
+
+SELECT ?p ?o
+WHERE {
+  www:Thorin_Stonefist ?p ?o.
+  }
+  
+
+
+
+
+// EVERY PLAYER/CHARCTER
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX www: <http://www.semanticweb.org/pear/ontologies/2026/0/pc#>
+
+SELECT ?s ?o
+WHERE {
+     ?s www:hasCharacterName ?o;
+     
+}

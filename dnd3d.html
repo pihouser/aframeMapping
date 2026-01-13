@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pihouser.com – AFRAME DND MAP</title>
+
+  <!-- A-Frame core -->
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+
+  <!-- Environment -->
+  <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
+
+  <!-- Look-at -->
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+
+  <!-- Event-set (for hover color changes) -->
+  <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+
+  <!-- WebXR polyfill for mobile VR -->
+  <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.min.js"></script>
+
+ <!-- My Javascript files -->
+  <script src="/js/semantic-trigger.js"></script>
+  <script src="/js/poi-label.js"></script>
+</head>
+
+<body>
+<a-scene renderer="colorManagement: true" vr-mode-ui="enabled: true">
+
+  <a-assets>
+    <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+
+    <!-- UPDATED: new textured GLB -->
+    <a-asset-item
+      id="map-textured"
+      src="assets/obj/SwordCoast_Textured.glb">
+    </a-asset-item>
+  </a-assets>
+
+  <a-entity environment="preset: default"></a-entity>
+
+  <a-light type="ambient" intensity="3.0"></a-light>
+
+  <a-camera position="0 3.6 0">
+    <a-cursor raycaster="objects: .clickable"></a-cursor>
+  </a-camera>
+
+  <a-sky src="#skyTexture"></a-sky>
+
+  <!-- UPDATED: reference new asset ID -->
+  <a-entity
+    gltf-model="#map-textured"
+    position="0 1 -6.2"
+    rotation="14.6 0 0"
+    scale="0.08 0.08 0.06"
+    frustum-culled="false">
+  </a-entity>
+
+  <!-- POI: Baldur's Gate -->
+  <a-sphere
+    id="poi-baldurs-gate"
+    poi-label="name: Baldur's Gate"
+    class="clickable"
+    position="-0.43 .8 -4.3"
+    radius="0.05"
+    semantic-trigger
+    event-set__enter="event: mouseenter; color: #FB24FF"
+    event-set__leave="event: mouseleave; color: #BD24FF"
+    data-uri="http://www.semanticweb.org/pear/ontologies/2026/0/11-gis#BaldursGate">
+  </a-sphere>
+
+</a-scene>
+</body>
+</html>
