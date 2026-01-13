@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pihouser.com – AFRAME DND MAP</title>
+
+  <!-- A-Frame Core -->
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+
+  <!-- Components -->
+  <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+
+  <!-- External JS -->
+  <script src="/js/semantic-trigger.js"></script>
+  <script src="/js/load-poi.js" defer></script>
+</head>
+
+<body>
+  <a-scene renderer="colorManagement: true">
+
+    <a-assets>
+      <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+      <a-asset-item id="map" src="assets/obj/SwordCoast_Textured.glb"></a-asset-item>
+    </a-assets>
+    <a-entity environment="preset: default"></a-entity>
+
+    <a-light type="ambient" intensity="3.0"></a-light>
+    
+    <a-camera position="0 3.6 0">
+      <a-cursor raycaster="objects: .clickable" cursor="rayOrigin: mouse"></a-cursor>
+    </a-camera>
+
+    <a-sky src="#skyTexture"></a-sky>
+
+    <!-- Map container -->
+    <a-entity id="map-entity"
+              position="0 1 -6.2"
+              rotation="14.6 0 0"
+              scale="0.08 0.08 0.06"
+              frustum-culled="false">
+    </a-entity>
+
+  </a-scene>
+
+  <script>
+    // Ensure GLB model loads only after asset is ready
+    const mapEntity = document.getElementById('map-entity');
+    const mapAsset = document.getElementById('map');
+
+    mapAsset.addEventListener('loaded', () => {
+      mapEntity.setAttribute('gltf-model', '#map');
+      console.log('Map model loaded');
+    });
+  </script>
+
+</body>
+</html>
