@@ -2,67 +2,160 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>pihouser.com – AFRAME DND MAP</title>
+  <title>pihouser.com – DND MAP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- A-Frame core -->
+  <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
 
-  <!-- Environment -->
+  <!-- Components -->
   <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
-
-  <!-- Look-at -->
   <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-
-  <!-- Event-set (for hover color changes) -->
   <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
-
-  <!-- WebXR polyfill for mobile VR -->
   <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.min.js"></script>
 
- <!-- My Javascript files -->
+  <!-- Your JS -->
   <script src="/js/semantic-trigger.js"></script>
   <script src="/js/poi-label.js"></script>
+  <!-- Firefox fix -->
+  <script>
+  const scene = document.querySelector('a-scene');
+
+  scene.addEventListener('click', () => scene.focus());
+
+  scene.addEventListener('loaded', () => {
+    const canvas = scene.canvas;
+    canvas.setAttribute('tabindex', '0');
+    canvas.addEventListener('click', () => canvas.focus());
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (['w','a','s','d'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+  </script>
+
+  <!-- Coordinate Reader -->
+  <script>
+  AFRAME.registerComponent('coords-reader', {
+    init: function () {
+      this.cursor = document.querySelector('a-cursor');
+      this.display = document.getElementById('coords');
+    },
+    tick: function () {
+      if (!this.cursor) return;
+
+      const rc = this.cursor.components.raycaster;
+      if (!rc) return;
+
+      const hits = rc.intersections;
+      if (!hits || hits.length === 0) return;
+
+      const hit = hits[0];
+
+      // Only track terrain
+      if (!hit.object.el.classList.contains('raycastable')) return;
+
+      const p = hit.point;
+
+      this.display.innerText =
+        `X: ${p.x.toFixed(2)} | ` +
+        `Y: ${p.y.toFixed(2)} | ` +
+        `Z: ${p.z.toFixed(2)}`;
+    }
+  });
+  </script>
+
+  <style>
+    body { margin: 0; }
+    .hud {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      z-index: 10;
+      background: rgba(0,0,0,0.75);
+      color: white;
+      padding: 10px 12px;
+      font: 14px/1.35 sans-serif;
+      border-radius: 8px;
+      max-width: 320px;
+    }
+    .hud b { color: #ffd54a; }
+  </style>
 </head>
 
 <body>
-<a-scene renderer="colorManagement: true" vr-mode-ui="enabled: true">
 
+<div class="hud">
+  <div><b>Controls</b></div>
+  <div>W/A/S/D = move</div>
+  <div>Mouse = look</div>
+  <div> X = E/W, Y = Elevation, Z = N/S</div>
+  <div id="coords">
+    X: 0 | Y: 0 | Z: 0
+  </div>
+</div>
+
+<a-scene renderer="colorManagement: true" background="color: #20252b">
+
+  <!-- Assets -->
   <a-assets>
     <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
-
-    <!-- UPDATED: new textured GLB -->
-    <a-asset-item
-      id="map-textured"
-      src="assets/obj/SwordCoast_Textured.glb">
-    </a-asset-item>
+    <a-asset-item id="map-textured" src="assets/obj/SwordCoast_Textured.glb"></a-asset-item>
   </a-assets>
 
+  <!-- Environment -->
   <a-entity environment="preset: default"></a-entity>
+  <a-light type="ambient" intensity="2.2"></a-light>
+  <a-light type="directional" intensity="1.0" position="3 8 4"></a-light>
 
-  <a-light type="ambient" intensity="3.0"></a-light>
-
-  <a-camera position="0 3.6 0">
-    <a-cursor raycaster="objects: .clickable"></a-cursor>
-  </a-camera>
+  <!-- Camera -->
+  <a-entity id="rig" position="3.5 3.6 8" coords-reader>
+    <a-camera
+      wasd-controls="enabled: true"
+      look-controls="pointerLockEnabled: true"
+      tabindex="0">
+      <a-cursor raycaster="objects: .raycastable, .clickable; far: 100"></a-cursor>
+    </a-camera>
+  </a-entity>
 
   <a-sky src="#skyTexture"></a-sky>
 
-  <!-- UPDATED: reference new asset ID -->
-  <a-entity
-    gltf-model="#map-textured"
-    position="0 1 -6.2"
-    rotation="14.6 0 0"
-    scale="0.08 0.08 0.06"
-    frustum-culled="false">
+  <!-- Debug Grid -->
+  <a-plane position="0 0 -6" rotation="-90 0 0"
+           width="20" height="20"
+           material="wireframe: true; opacity: 0.25"
+           color="#555">
+  </a-plane>
+
+  <!-- Origin -->
+  <a-sphere position="0 0.05 -6" radius="0.08" color="#ffffff"></a-sphere>
+
+  <!-- Axes -->
+  <a-box position="1 0.05 -6" width="2" height="0.03" depth="0.03" color="#ff3333"></a-box>
+  <a-box position="0 1 -6" width="0.03" height="2" depth="0.03" color="#33ff66"></a-box>
+  <a-box position="0 0.05 -7" width="0.03" height="0.03" depth="2" color="#3399ff"></a-box>
+
+  <!-- Map -->
+  <a-entity id="map-root" position="0 0 0" rotation="0 0 0" scale="0.14 0.14 0.14">
+    <a-entity
+      gltf-model="#map-textured"
+      class="raycastable"
+      shadow
+      frustum-culled="false">
+    </a-entity>
   </a-entity>
 
-  <!-- POI: Baldur's Gate -->
+  <!-- POI -->
   <a-sphere
     id="poi-baldurs-gate"
-    poi-label="name: Baldur's Gate"
     class="clickable"
-    position="-0.43 .8 -4.3"
-    radius="0.05"
+    class="raycastable"
+    position="-0.894 0.48 4.35"
+    radius="0.1"
+    color="#FF0000"
+    poi-label="name: Baldur's Gate"
     semantic-trigger
     event-set__enter="event: mouseenter; color: #FB24FF"
     event-set__leave="event: mouseleave; color: #BD24FF"
@@ -70,5 +163,7 @@
   </a-sphere>
 
 </a-scene>
+
+
 </body>
 </html>
