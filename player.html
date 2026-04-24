@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Initiative Tracker</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #222;
+        color: white;
+    }
+    #bar {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 5px;
+        border-bottom: 2px solid #444;
+    }
+    .charBox {
+        padding: 10px 15px;
+        margin: 4px;
+        border-radius: 5px;
+        min-width: 120px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .highlight {
+        outline: 3px solid white;
+    }
+</style>
+</head>
+<body>
+
+<div id="bar"></div>
+
+<script>
+function loadData() {
+    const list = JSON.parse(localStorage.getItem("initiative")) || [];
+    const highlight = localStorage.getItem("highlight") || "";
+    const bar = document.getElementById("bar");
+
+    bar.innerHTML = "";
+
+    list.sort((a, b) => b.roll - a.roll);
+
+    list.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "charBox";
+        if (c.id === highlight) div.classList.add("highlight");
+        div.style.background = c.color;
+        div.textContent = c.name + " (" + c.roll + ")";
+        bar.appendChild(div);
+    });
+}
+
+window.addEventListener("storage", loadData);
+loadData();
+</script>
+
+</body>
+</html>

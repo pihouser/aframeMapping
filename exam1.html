@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Geology 1301 exam</title>
+<style>
+  :root{
+    --bg:#071428;
+    --card:#0d2a3a;
+    --accent:#ffd166;
+    --text:#e6f0f2;
+    --muted:#9fb2b8;
+    --modal-bg: rgba(7,20,40,0.95);
+  }
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+  body{background:linear-gradient(180deg,var(--bg),#041521);color:var(--text);padding:18px;box-sizing:border-box;}
+  .wrap{max-width:1150px;margin:0 auto;}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  h1{font-size:20px;margin:0}
+  p.lead{margin:6px 0 0;color:var(--muted);font-size:13px}
+  .board{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .category{
+    background:linear-gradient(180deg,#123845,#0b2d36);
+    padding:12px;border-radius:6px;text-align:center;font-weight:700;color:var(--accent);
+    box-shadow:0 3px 8px rgba(0,0,0,0.45);font-size:14px;
+  }
+  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+  .tile{
+    background:var(--card);padding:22px;border-radius:6px;text-align:center;font-weight:700;
+    font-size:20px;color:var(--accent);cursor:pointer;box-shadow:0 6px 14px rgba(2,12,18,0.6);
+    user-select:none;
+  }
+  .tile.disabled{opacity:0.35;cursor:not-allowed}
+  .controls{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .scoreboard{background:#06232a;padding:10px;border-radius:6px;display:flex;gap:12px;align-items:center}
+  .team{min-width:160px;padding:8px;border-radius:6px;background:#063740}
+  .team h3{margin:0;font-size:13px;color:var(--accent)}
+  .team .score{font-size:22px;margin-top:6px}
+  button{background:var(--accent);border:none;color:#05222a;padding:8px 12px;border-radius:6px;font-weight:700;cursor:pointer}
+  button.ghost{background:transparent;border:1px solid rgba(255,209,102,0.12);color:var(--accent)}
+  .small{padding:6px 8px;font-size:13px}
+  footer{margin-top:18px;color:var(--muted);font-size:13px}
+  /* modal */
+  .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;visibility:hidden;opacity:0;transition:all .18s}
+  .modal.show{visibility:visible;opacity:1}
+  .modal-backdrop{position:absolute;inset:0;background:var(--modal-bg)}
+  .modal-card{position:relative;background:#071828;border-radius:8px;padding:20px;max-width:900px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.6);z-index:2}
+  .qtext{font-size:20px;color:var(--text);line-height:1.25}
+  .hint{color:var(--muted);font-size:13px;margin-top:8px}
+  .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+  .answerbox{display:none;background:#042b33;padding:12px;border-radius:6px;margin-top:12px;color:#dff7f0}
+  .meta{font-size:13px;color:var(--muted)}
+  @media (max-width:700px){
+    .board{grid-template-columns:1fr}
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .category{font-size:13px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Geology 1301 exam 1</h1>
+      <p class="lead">Click a tile to view the question. Press <strong>A</strong> to reveal answer, or close with <strong>Esc</strong>.</p>
+    </div>
+    <div class="scoreboard" aria-hidden="false">
+      <div class="team" id="teamA">
+        <h3>Team A</h3>
+        <div class="score" id="scoreA">0</div>
+      </div>
+      <div class="team" id="teamB">
+        <h3>Team B</h3>
+        <div class="score" id="scoreB">0</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- The board -->
+  <section id="boardArea">
+    <div class="board" id="categoryRow">
+      <!-- categories injected by JS -->
+    </div>
+
+    <div class="tiles" id="tilesRow" style="margin-top:8px">
+      <!-- tiles injected by JS -->
+    </div>
+  </section>
+
+  <div class="controls" style="margin-top:14px">
+    <button id="resetBtn" class="ghost small">Reset Board</button>
+    <button id="clearScores" class="small">Clear Scores</button>
+    <div style="flex:1"></div>
+    <div class="meta">Tip: Edit questions and categories inside the page script (variable <code>gameData</code>).</div>
+  </div>
+
+  <footer>
+    <div class="controls">
+      <div class="controls">
+  <a href="exam.html" style="color:var(--accent);font-size:14px">Back to Page 0</a>
+  <button id="resetBtn" class="ghost small">Reset Board</button>
+  <button id="clearScores" class="small">Clear Scores</button>
+  <div style="flex:1"></div>
+  <div class="meta">Edit questions in <code>gameData</code> inside script.</div>
+</div>
+
+      <a href="exam2.html" style="color:var(--accent);font-size:14px">GO to Page 2</a>
+      <button id="resetBtn" class="ghost small">Reset Board</button>
+      <button id="clearScores" class="small">Clear Scores</button>
+      <div style="flex:1"></div>
+      <div class="meta">Edit questions in <code>gameData</code> inside script.</div>
+    </div>
+
+    <p>Local copy; edit values in the file for custom categories, questions and point values.</p>
+  </footer>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" role="document">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div class="meta" id="modalMeta"></div>
+        <div class="qtext" id="modalQ">Question text</div>
+        <div class="hint" id="modalHint"></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:13px;color:var(--muted)">Value</div>
+        <div style="font-size:26px;font-weight:800;color:var(--accent)" id="modalValue">$200</div>
+      </div>
+    </div>
+
+    <div class="answerbox" id="answerBox"><strong>Answer:</strong> <span id="modalA"></span></div>
+
+    <div class="modal-actions">
+      <button id="revealBtn" class="small">Reveal Answer (A)</button>
+      <button id="addA" class="small">+ Team A</button>
+      <button id="addB" class="small">+ Team B</button>
+      <button id="minusA" class="small ghost">− Team A</button>
+      <button id="minusB" class="small ghost">− Team B</button>
+      <button id="closeBtn" class="small ghost">Close (Esc)</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+  gameData: edit categories, values, questions and answers here.
+  Structure:
+  categories: [ "Name", ... ]
+  tiles: 2D array rows of categoryCount each row is one value-row
+  Each tile: { q: "question", a: "answer", used:false }
+*/
+const gameData = {
+  categories: [
+    "Origins",
+    "Earth Structure",
+    "Tectonics",
+    "Cycles",
+    "Time & Climate"
+  ],
+  // rows top-to-bottom (low to high value)
+  values: [1,2,3,4,5],
+  tiles: [
+    // value 200 row
+    [
+      { q: "what are the four inner planets of the solar system, and what similar composition do they share?", a: "Mercury, Venus, Earth, Mars. Made for rock" },
+      { q: "what process causes differentiation from elements within the Earth?", a: "Heat, pressure, radiation" },
+      { q: "How do we know that the Earth's core is both liquid and solid?", a: "Seimic Waves slow down in liquids, and travel faster in solids" },
+      { q: "What is the Rock Cycle? Provide names!", a: "igneous, metamorphic, sedimentary, hydrothermal" },
+      { q: "How old is the Earth (Approximately)?", a: "Approx. 4.8 bya" }
+    ],
+    // 400 row
+    [
+      { q: "What caused the Earth's axial tilt?", a: "The Moon colliding with Earth during formation" },
+      { q: "What are the two types of Seimic waves, which arrives first?", a: "P-waves (primary) and S-waves (shear)" },
+      { q: "Which crust will subduct when an ocean plate and continental plate hit each other and why?", a: "Oceanic plate due to density" },
+      { q: "Where is most of El Paso's water come from?", a: "the two underground water bolsons (Mesilla and Hueco)" },
+      { q: "What three events are expected to happen around 4 bya in the future?", a: "Sun Explodes, Plate tectonics stop, Milky way / Andromeda collision" }
+    ],
+    // 600 row
+    [
+      { q: "What local El Paso geologic site is used by NASA as a planetary terrestrial analogue study site?", a: "Kilborne Hole, NM" },
+      { q: "Where do earthquakes occur?", a: "Upper-mantle layer where friction can occur" },
+      { q: "El Paso has the Rio Grande Rift, where else on earth does this occur (hint Africa)?", a: "East African Rift" },
+      { q: "Briefly describe the water cycle.", a: "evaporation, transpiration, condensation, precipitation, infiltration, and runoff" },
+      { q: "Name atleast 2 methods of relative dating?", a: "stratigraphy, Fossils, observations" }
+    ],
+    // 800 row
+    [
+      { q: "Where did Earth get most of it's water?", a: "Within rock material upon formation and Comets" },
+      { q: "What causes Earth's Heat?", a: "Magma and radiation" },
+      { q: "What local geologic feature follows a Rift/Crack in the earth?", a: "Rio Grande River" },
+      { q: "What events can be recorded in tree rings?", a: "Season changes in water, fires, droughs" },
+      { q: "What is the process called where rock layers are compressed and bent (Hint Steno's law)?", a: "Folding" }
+    ],
+    // 1000 row
+    [
+      { q: "What is the Approx. age of the Universe and what is the theory named?", a: "Approx. 14 bya, Big Bang Theory" },
+      { q: "What happens to the surface area of metamorphic rocks as they are created, what is created/changed?", a: "Surface area increases, minerals" },
+      { q: "Where do most of our local earthquakes occur, name two process that cause them?", a: "Rio Grade Rift area or East Texas, Rifting or Fracking" },
+      { q: "What cause the water cycle to flow?", a: "The Coriolis effect" },
+      { q: "What human activity contributes to the Carbon Cycle.", a: "Buring fossil fuels" }
+    ]
+  ]
+};
+
+// ---- UI logic ----
+const categoryRow = document.getElementById('categoryRow');
+const tilesRow = document.getElementById('tilesRow');
+const modal = document.getElementById('modal');
+const modalQ = document.getElementById('modalQ');
+const modalA = document.getElementById('modalA');
+const modalValue = document.getElementById('modalValue');
+const modalMeta = document.getElementById('modalMeta');
+const modalHint = document.getElementById('modalHint');
+const answerBox = document.getElementById('answerBox');
+const revealBtn = document.getElementById('revealBtn');
+
+let scoreA = 0, scoreB = 0;
+const scoreAEl = document.getElementById('scoreA');
+const scoreBEl = document.getElementById('scoreB');
+
+function buildBoard(){
+  // categories
+  categoryRow.innerHTML = '';
+  gameData.categories.forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'category';
+    d.textContent = c;
+    categoryRow.appendChild(d);
+  });
+
+  // tiles
+  tilesRow.innerHTML = '';
+  for(let r=0;r<gameData.tiles.length;r++){
+    const row = gameData.tiles[r];
+    for(let c=0;c<gameData.categories.length;c++){
+      const tileData = row[c];
+      const val = gameData.values[r] || (200*(r+1));
+      const t = document.createElement('div');
+      t.className = 'tile';
+      t.dataset.r = r; t.dataset.c = c;
+      t.dataset.used = tileData.used ? '1' : '0';
+      t.textContent = `$${val}`;
+      t.addEventListener('click', onTileClick);
+      tilesRow.appendChild(t);
+    }
+  }
+}
+
+function onTileClick(e){
+  const t = e.currentTarget;
+  if(t.dataset.used === '1') return;
+  const r = +t.dataset.r, c = +t.dataset.c;
+  const tile = gameData.tiles[r][c];
+  const val = gameData.values[r];
+  openModal(tile, val, r, c, t);
+}
+
+function openModal(tile, val, r, c, tileEl){
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden','false');
+  modalQ.textContent = tile.q;
+  modalA.textContent = tile.a;
+  modalValue.textContent = `$${val}`;
+  modalMeta.textContent = `${gameData.categories[c]} — $${val}`;
+  modalHint.textContent = '';
+  answerBox.style.display = 'none';
+  tileEl.classList.add('disabled');
+  tileEl.dataset.used = '1';
+  gameData.tiles[r][c].used = true;
+
+  // hook up scoring buttons
+  function add(team){
+    if(team==='A'){ scoreA += val; scoreAEl.textContent = scoreA; }
+    else { scoreB += val; scoreBEl.textContent = scoreB; }
+  }
+  function minus(team){
+    if(team==='A'){ scoreA -= val; scoreAEl.textContent = scoreA; }
+    else { scoreB -= val; scoreBEl.textContent = scoreB; }
+  }
+
+  // event listeners for modal controls
+  const addA = document.getElementById('addA');
+  const addB = document.getElementById('addB');
+  const minusA = document.getElementById('minusA');
+  const minusB = document.getElementById('minusB');
+  const closeBtn = document.getElementById('closeBtn');
+
+  function cleanListeners(){
+    addA.onclick = null; addB.onclick = null; minusA.onclick = null; minusB.onclick = null; closeBtn.onclick = null;
+  }
+
+  addA.onclick = ()=>{ add('A'); };
+  addB.onclick = ()=>{ add('B'); };
+  minusA.onclick = ()=>{ minus('A'); };
+  minusB.onclick = ()=>{ minus('B'); };
+  closeBtn.onclick = ()=>{ closeModal(); cleanListeners(); };
+
+  // reveal answer
+  revealBtn.onclick = ()=>{ answerBox.style.display = 'block'; };
+
+  // keyboard shortcuts
+  function keyHandler(ev){
+    if(ev.key === 'Escape'){ closeModal(); cleanListeners(); document.removeEventListener('keydown', keyHandler); }
+    if(ev.key === 'a' || ev.key === 'A'){ answerBox.style.display='block'; }
+  }
+  document.addEventListener('keydown', keyHandler);
+}
+
+function closeModal(){
+  modal.classList.remove('show');
+  modal.setAttribute('aria-hidden','true');
+}
+
+// reset board - clears used flags
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  gameData.tiles.forEach(row=>row.forEach(t=>t.used=false));
+  buildBoard();
+});
+
+// clear scores
+document.getElementById('clearScores').addEventListener('click', ()=>{
+  scoreA = 0; scoreB = 0; scoreAEl.textContent=0; scoreBEl.textContent=0;
+});
+
+// close when clicking backdrop
+document.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+
+// keyboard - global
+document.addEventListener('keydown', (ev)=>{
+  if(ev.key === 'Escape'){ closeModal(); }
+  if((ev.key === 'a' || ev.key === 'A') && modal.classList.contains('show')){ answerBox.style.display='block'; }
+});
+
+// initialize
+buildBoard();
+</script>
+</body>
+</html>

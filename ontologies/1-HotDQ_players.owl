@@ -1,0 +1,510 @@
+Prefix(:=<http://www.semanticweb.org/pear/ontologies/2026/0/pc#>)
+Prefix(D:=<http://www.semanticweb.org/pear/ontologies/2026/0/pc#D&>)
+Prefix(pc:=<http://www.semanticweb.org/pear/ontologies/2026/0/pc#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(armor:=<http://www.semanticweb.org/pear/ontologies/2026/0/armor#>)
+Prefix(Conditions:=<http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#>)
+
+
+Ontology(<http://www.semanticweb.org/pear/ontologies/2026/0/pc>
+Import(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells>)
+Import(<http://www.semanticweb.org/pear/ontologies/2026/0/armor>)
+Import(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons>)
+Import(<http://www.semanticweb.org/pear/ontologies/2026/0/11-dndmap>)
+Import(<http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions>)
+Annotation(rdfs:comment "Date: 2025 - 2026
+Campaign: Horde of the Dragon Queen 
+Players: John B., Ailhbe, Cormac, Niamh, Gwyneth, Diego, Johnny, Bubba, Amorita
+Characters: HotDQ level 5 - 7
+
+Prior Campaign: Lost Mine of Phandelver (LMOP)
+Starting Characters: LMOP level 1 - 4")
+Annotation(rdfs:isDefinedBy "Imported Ontologies:
+1) 3-DamageConditionsImpacts.owl
+2) 8-Spells.owl
+3) 9-Weapons.owl
+4) 10-ArmorShields.owl")
+
+Declaration(Class(pc:Alignment))
+Declaration(Class(pc:Background))
+Declaration(Class(pc:Characters))
+Declaration(Class(pc:Class))
+Declaration(Class(pc:Condition))
+Declaration(Class(pc:Magical))
+Declaration(Class(pc:Players))
+Declaration(Class(pc:Race))
+Declaration(Class(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage>))
+Declaration(ObjectProperty(pc:damageType))
+Declaration(ObjectProperty(pc:hasAlignment))
+Declaration(ObjectProperty(pc:hasArmor))
+Declaration(ObjectProperty(pc:hasClass))
+Declaration(ObjectProperty(pc:hasDamage))
+Declaration(ObjectProperty(pc:hasRace))
+Declaration(ObjectProperty(pc:hasShield))
+Declaration(ObjectProperty(pc:hasSkill))
+Declaration(ObjectProperty(pc:hasSpells))
+Declaration(ObjectProperty(pc:hasWeapons))
+Declaration(DataProperty(pc:hasAC))
+Declaration(DataProperty(pc:hasCharisma))
+Declaration(DataProperty(pc:hasConstitution))
+Declaration(DataProperty(pc:hasDC))
+Declaration(DataProperty(pc:hasDarkvision))
+Declaration(DataProperty(pc:hasDexerity))
+Declaration(DataProperty(pc:hasHitDice))
+Declaration(DataProperty(pc:hasHitPoints))
+Declaration(DataProperty(pc:hasInitiative))
+Declaration(DataProperty(pc:hasIntelligence))
+Declaration(DataProperty(pc:hasLevel))
+Declaration(DataProperty(pc:hasSpeed))
+Declaration(DataProperty(pc:hasStrength))
+Declaration(DataProperty(pc:hasWisdom))
+Declaration(DataProperty(pc:numberOfAttacks))
+Declaration(NamedIndividual(pc:Acrobatics))
+Declaration(NamedIndividual(pc:Animal_Handling))
+Declaration(NamedIndividual(pc:Arcana))
+Declaration(NamedIndividual(pc:Athletics))
+Declaration(NamedIndividual(pc:Bludgeoning))
+Declaration(NamedIndividual(pc:CG))
+Declaration(NamedIndividual(pc:Chain_Mail))
+Declaration(NamedIndividual(pc:Cloth))
+Declaration(NamedIndividual(pc:Criminal))
+Declaration(NamedIndividual(pc:Deception))
+Declaration(NamedIndividual(pc:Diego))
+Declaration(NamedIndividual(pc:Dwarf))
+Declaration(NamedIndividual(pc:Ella_of_the_Eternal_Lands))
+Declaration(NamedIndividual(pc:Gauntlet))
+Declaration(NamedIndividual(pc:Gwyneth))
+Declaration(NamedIndividual(pc:High_Elf))
+Declaration(NamedIndividual(pc:History))
+Declaration(NamedIndividual(pc:Insight))
+Declaration(NamedIndividual(pc:Intimidation))
+Declaration(NamedIndividual(pc:Investigation))
+Declaration(NamedIndividual(pc:Leather))
+Declaration(NamedIndividual(pc:Medicine))
+Declaration(NamedIndividual(pc:Paladin))
+Declaration(NamedIndividual(pc:Perception))
+Declaration(NamedIndividual(pc:Performance))
+Declaration(NamedIndividual(pc:Persuasion))
+Declaration(NamedIndividual(pc:Piercing))
+Declaration(NamedIndividual(pc:Religion))
+Declaration(NamedIndividual(pc:Rogue))
+Declaration(NamedIndividual(pc:Royality))
+Declaration(NamedIndividual(pc:Slashing))
+Declaration(NamedIndividual(pc:Sleight_of_hand))
+Declaration(NamedIndividual(pc:Stealth))
+Declaration(NamedIndividual(pc:Survival))
+Declaration(NamedIndividual(pc:Thorin_Stonefist))
+Declaration(NamedIndividual(pc:Warlock))
+Declaration(AnnotationProperty(pc:hasAlignment))
+Declaration(AnnotationProperty(pc:hasBackground))
+Declaration(AnnotationProperty(pc:hasCharacterName))
+Declaration(AnnotationProperty(pc:hasLanguages))
+Declaration(AnnotationProperty(pc:hasPlayerName))
+Declaration(AnnotationProperty(pc:hasUnits))
+Declaration(AnnotationProperty(D:D))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: pc:hasAlignment (pc:hasAlignment)
+
+SubAnnotationPropertyOf(pc:hasAlignment D:D)
+
+# Annotation Property: pc:hasBackground (pc:hasBackground)
+
+SubAnnotationPropertyOf(pc:hasBackground D:D)
+
+# Annotation Property: pc:hasCharacterName (pc:hasCharacterName)
+
+SubAnnotationPropertyOf(pc:hasCharacterName D:D)
+
+# Annotation Property: pc:hasLanguages (pc:hasLanguages)
+
+SubAnnotationPropertyOf(pc:hasLanguages D:D)
+
+# Annotation Property: pc:hasPlayerName (pc:hasPlayerName)
+
+SubAnnotationPropertyOf(pc:hasPlayerName D:D)
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: pc:damageType (pc:damageType)
+
+SubObjectPropertyOf(pc:damageType pc:hasDamage)
+
+# Object Property: pc:hasShield (pc:hasShield)
+
+SubObjectPropertyOf(pc:hasShield pc:hasArmor)
+
+# Object Property: pc:hasSpells (pc:hasSpells)
+
+ObjectPropertyDomain(pc:hasSpells ObjectExactCardinality(1 pc:hasSpells <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin>))
+ObjectPropertyRange(pc:hasSpells ObjectSomeValuesFrom(pc:hasSpells <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense>))
+ObjectPropertyRange(pc:hasSpells ObjectSomeValuesFrom(pc:hasSpells <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Smite>))
+ObjectPropertyRange(pc:hasSpells ObjectSomeValuesFrom(pc:hasSpells <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Lay_on_Hands>))
+ObjectPropertyRange(pc:hasSpells ObjectSomeValuesFrom(pc:hasSpells <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Searing_Smite>))
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: pc:hasDarkvision (pc:hasDarkvision)
+
+AnnotationAssertion(pc:hasUnits pc:hasDarkvision "Feet")
+SubDataPropertyOf(pc:hasDarkvision owl:topDataProperty)
+
+# Data Property: pc:hasInitiative (pc:hasInitiative)
+
+AnnotationAssertion(rdfs:isDefinedBy pc:hasInitiative "added Dexerity")
+FunctionalDataProperty(pc:hasInitiative)
+
+# Data Property: pc:hasSpeed (pc:hasSpeed)
+
+AnnotationAssertion(pc:hasUnits pc:hasSpeed "Feet")
+SubDataPropertyOf(pc:hasSpeed owl:topDataProperty)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Artificer> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Artificer>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Artificer> pc:Class)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Bard> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Bard>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Bard> pc:Class)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense> <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin>)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin> pc:Class)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Rogue> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Rogue>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Rogue> pc:Class)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Sorcerer> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Sorcerer>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Sorcerer> pc:Class)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Spellblade> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Spellblade>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Spellblade> pc:Class)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock> pc:Class)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Wizard> (<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Wizard>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Wizard> pc:Class)
+
+# Class: armor:Shield (armor:Shield)
+
+SubClassOf(armor:Shield armor:Armor)
+
+# Class: pc:Alignment (pc:Alignment)
+
+SubClassOf(pc:Alignment pc:Characters)
+
+# Class: pc:Background (pc:Background)
+
+SubClassOf(pc:Background pc:Characters)
+
+# Class: pc:Class (pc:Class)
+
+SubClassOf(pc:Class pc:Characters)
+
+# Class: pc:Condition (pc:Condition)
+
+EquivalentClasses(pc:Condition <http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Condition>)
+
+# Class: pc:Magical (pc:Magical)
+
+SubClassOf(pc:Magical pc:Condition)
+
+# Class: pc:Race (pc:Race)
+
+SubClassOf(pc:Race pc:Characters)
+
+# Class: <http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> (<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage>)
+
+SubClassOf(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> pc:Condition)
+
+# Class: Conditions:Advantage (Conditions:Advantage)
+
+SubClassOf(Conditions:Advantage pc:Condition)
+
+# Class: Conditions:Dice (Conditions:Dice)
+
+SubClassOf(Conditions:Dice pc:Condition)
+
+# Class: Conditions:Impact (Conditions:Impact)
+
+SubClassOf(Conditions:Impact pc:Condition)
+
+# Class: Conditions:Location (Conditions:Location)
+
+SubClassOf(Conditions:Location pc:Condition)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: armor:Gauntlet_of_Protection (armor:Gauntlet_of_Protection)
+
+ClassAssertion(armor:Gauntlet armor:Gauntlet_of_Protection)
+ClassAssertion(pc:Magical armor:Gauntlet_of_Protection)
+
+# Individual: pc:Acrobatics (pc:Acrobatics)
+
+ClassAssertion(DataSomeValuesFrom(pc:hasDexerity owl:rational) pc:Acrobatics)
+
+# Individual: pc:Animal_Handling (pc:Animal_Handling)
+
+ClassAssertion(DataExactCardinality(1 pc:hasWisdom owl:rational) pc:Animal_Handling)
+
+# Individual: pc:Arcana (pc:Arcana)
+
+ClassAssertion(DataExactCardinality(1 pc:hasIntelligence owl:rational) pc:Arcana)
+
+# Individual: pc:Athletics (pc:Athletics)
+
+ClassAssertion(DataExactCardinality(1 pc:hasStrength owl:rational) pc:Athletics)
+
+# Individual: pc:Bludgeoning (pc:Bludgeoning)
+
+AnnotationAssertion(rdfs:comment pc:Bludgeoning "Blunt force attacks—hammers, falling, constriction, and the like—deal bludgeoning damage.")
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> pc:Bludgeoning)
+
+# Individual: pc:CG (pc:CG)
+
+ClassAssertion(pc:Alignment pc:CG)
+
+# Individual: pc:Chain_Mail (pc:Chain_Mail)
+
+ClassAssertion(armor:Armor pc:Chain_Mail)
+
+# Individual: pc:Cloth (pc:Cloth)
+
+ClassAssertion(armor:Armor pc:Cloth)
+
+# Individual: pc:Criminal (pc:Criminal)
+
+ClassAssertion(pc:Background pc:Criminal)
+
+# Individual: pc:Deception (pc:Deception)
+
+ClassAssertion(DataExactCardinality(1 pc:hasCharisma owl:rational) pc:Deception)
+
+# Individual: pc:Diego (pc:Diego)
+
+AnnotationAssertion(rdfs:seeAlso pc:Diego pc:Characters)
+ClassAssertion(pc:Players pc:Diego)
+SameIndividual(pc:Diego pc:Thorin_Stonefist)
+
+# Individual: pc:Dwarf (pc:Dwarf)
+
+ClassAssertion(pc:Race pc:Dwarf)
+
+# Individual: pc:Ella_of_the_Eternal_Lands (pc:Ella_of_the_Eternal_Lands)
+
+AnnotationAssertion(pc:hasBackground pc:Ella_of_the_Eternal_Lands pc:Criminal)
+AnnotationAssertion(pc:hasLanguages pc:Ella_of_the_Eternal_Lands "Elvish, Common, Sylan")
+AnnotationAssertion(pc:hasPlayerName pc:Ella_of_the_Eternal_Lands pc:Gwyneth)
+AnnotationAssertion(rdfs:URL pc:Ella_of_the_Eternal_Lands "file:///Users/pear/Desktop/_/1-Stories/9-HotDQ/1-CharacterSheets/Ella.pdf")
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Dimension_Door> pc:Ella_of_the_Eternal_Lands)
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mage_Hand> pc:Ella_of_the_Eternal_Lands)
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mind_Silver> pc:Ella_of_the_Eternal_Lands)
+ClassAssertion(pc:Characters pc:Ella_of_the_Eternal_Lands)
+SameIndividual(pc:Ella_of_the_Eternal_Lands pc:Gwyneth)
+ObjectPropertyAssertion(pc:hasAlignment pc:Ella_of_the_Eternal_Lands pc:CG)
+ObjectPropertyAssertion(pc:hasClass pc:Ella_of_the_Eternal_Lands pc:Rogue)
+ObjectPropertyAssertion(pc:hasClass pc:Ella_of_the_Eternal_Lands pc:Warlock)
+ObjectPropertyAssertion(pc:hasRace pc:Ella_of_the_Eternal_Lands pc:High_Elf)
+DataPropertyAssertion(armor:hasAC pc:Ella_of_the_Eternal_Lands "16"^^xsd:integer)
+DataPropertyAssertion(pc:hasDexerity pc:Ella_of_the_Eternal_Lands "1"^^xsd:decimal)
+DataPropertyAssertion(pc:hasDexerity pc:Ella_of_the_Eternal_Lands "3"^^xsd:decimal)
+DataPropertyAssertion(pc:hasHitDice pc:Ella_of_the_Eternal_Lands "1d6+1")
+DataPropertyAssertion(pc:hasHitPoints pc:Ella_of_the_Eternal_Lands "49"^^xsd:decimal)
+DataPropertyAssertion(pc:hasInitiative pc:Ella_of_the_Eternal_Lands "3"^^xsd:decimal)
+DataPropertyAssertion(pc:hasIntelligence pc:Ella_of_the_Eternal_Lands "1"^^xsd:decimal)
+DataPropertyAssertion(pc:hasLevel pc:Ella_of_the_Eternal_Lands "7"^^xsd:integer)
+DataPropertyAssertion(pc:hasSpeed pc:Ella_of_the_Eternal_Lands "30"^^xsd:integer)
+DataPropertyAssertion(pc:hasStrength pc:Ella_of_the_Eternal_Lands "1"^^xsd:decimal)
+DataPropertyAssertion(pc:hasWisdom pc:Ella_of_the_Eternal_Lands "1"^^xsd:decimal)
+
+# Individual: pc:Gauntlet (pc:Gauntlet)
+
+ClassAssertion(armor:Gauntlet pc:Gauntlet)
+
+# Individual: pc:Gwyneth (pc:Gwyneth)
+
+AnnotationAssertion(rdfs:seeAlso pc:Gwyneth pc:Characters)
+ClassAssertion(pc:Players pc:Gwyneth)
+
+# Individual: pc:High_Elf (pc:High_Elf)
+
+ClassAssertion(pc:Race pc:High_Elf)
+ClassAssertion(ObjectSomeValuesFrom(pc:hasRace pc:Race) pc:High_Elf)
+
+# Individual: pc:History (pc:History)
+
+ClassAssertion(DataExactCardinality(1 pc:hasIntelligence owl:rational) pc:History)
+
+# Individual: pc:Insight (pc:Insight)
+
+ClassAssertion(DataExactCardinality(1 pc:hasWisdom owl:rational) pc:Insight)
+
+# Individual: pc:Intimidation (pc:Intimidation)
+
+ClassAssertion(DataExactCardinality(1 pc:hasCharisma owl:rational) pc:Intimidation)
+
+# Individual: pc:Investigation (pc:Investigation)
+
+ClassAssertion(DataExactCardinality(1 pc:hasIntelligence owl:rational) pc:Investigation)
+
+# Individual: pc:Leather (pc:Leather)
+
+ClassAssertion(armor:Armor pc:Leather)
+
+# Individual: pc:Medicine (pc:Medicine)
+
+ClassAssertion(DataExactCardinality(1 pc:hasWisdom owl:rational) pc:Medicine)
+
+# Individual: pc:Paladin (pc:Paladin)
+
+ClassAssertion(pc:Class pc:Paladin)
+ObjectPropertyAssertion(pc:hasSpells pc:Paladin pc:Thorin_Stonefist)
+
+# Individual: pc:Perception (pc:Perception)
+
+ClassAssertion(DataExactCardinality(1 pc:hasWisdom owl:rational) pc:Perception)
+
+# Individual: pc:Performance (pc:Performance)
+
+ClassAssertion(DataExactCardinality(1 pc:hasCharisma owl:rational) pc:Performance)
+
+# Individual: pc:Persuasion (pc:Persuasion)
+
+ClassAssertion(DataExactCardinality(1 pc:hasCharisma owl:rational) pc:Persuasion)
+
+# Individual: pc:Piercing (pc:Piercing)
+
+AnnotationAssertion(rdfs:comment pc:Piercing "Piercing is a damage type from weapons like arrows, daggers, and spears, dealing damage by puncturing. It's often associated with Dexterity-based finesse weapons but has specific rules for critical hits, like the Piercer feat allowing damage rerolls or the optional \"Impale\" critical hit rule for larger weapons to potentially inflict Exhaustion. Creatures like skeletons often resist piercing damage, while others (like dragons) might be vulnerable, affecting combat effectiveness")
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> pc:Piercing)
+
+# Individual: pc:Religion (pc:Religion)
+
+ClassAssertion(DataExactCardinality(1 pc:hasIntelligence owl:rational) pc:Religion)
+
+# Individual: pc:Rogue (pc:Rogue)
+
+ClassAssertion(pc:Class pc:Rogue)
+
+# Individual: pc:Royality (pc:Royality)
+
+ClassAssertion(pc:Background pc:Royality)
+
+# Individual: pc:Slashing (pc:Slashing)
+
+AnnotationAssertion(rdfs:comment pc:Slashing "Damage Type: Deals damage from cutting edges.
+Common Sources: Swords (longsword, scimitar), axes (handaxe, greataxe), and monster attacks (claws, bites).
+Creature Resistances/Immunities: Some creatures (like Skeletons) resist or are immune to slashing, while others are vulnerable (like Black Puddings), making it situationally important. 
+
+Optional & Feat-Based Enhancements
+
+    Slasher Feat (from Tasha's Cauldron of Everything):
+        Speed Reduction: Hit targets have their speed reduced by 10 feet until your next turn.
+        Critical Hit Effect: On a crit, the target has disadvantage on attack rolls until your next turn.
+    Homebrew/Optional Rules: Some tables use additional rules, such as:
+        Limb Removal: A critical hit with a slashing weapon can remove a limb from small or medium creatures.
+        Cleaving: An attack on a crit might hit an adjacent enemy for half damage if it would have hit them too.")
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> pc:Slashing)
+
+# Individual: pc:Sleight_of_hand (pc:Sleight_of_hand)
+
+ClassAssertion(DataExactCardinality(1 pc:hasDexerity owl:rational) pc:Sleight_of_hand)
+
+# Individual: pc:Stealth (pc:Stealth)
+
+ClassAssertion(DataExactCardinality(1 pc:hasDexerity owl:rational) pc:Stealth)
+
+# Individual: pc:Survival (pc:Survival)
+
+ClassAssertion(DataExactCardinality(1 pc:hasWisdom owl:rational) pc:Survival)
+
+# Individual: pc:Thorin_Stonefist (pc:Thorin_Stonefist)
+
+AnnotationAssertion(pc:hasBackground pc:Thorin_Stonefist pc:Royality)
+AnnotationAssertion(pc:hasCharacterName pc:Thorin_Stonefist pc:Thorin_Stonefist)
+AnnotationAssertion(pc:hasLanguages pc:Thorin_Stonefist "Dwarvish, Common, Orc")
+AnnotationAssertion(rdfs:seeAlso pc:Thorin_Stonefist "file:///Users/pear/Desktop/_/1-Stories/9-HotDQ/1-CharacterSheets/Thorin_Stonefist.pdf"^^xsd:anyURI)
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense> pc:Thorin_Stonefist)
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Smite> pc:Thorin_Stonefist)
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Lay_on_Hands> pc:Thorin_Stonefist)
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Searing_Smite> pc:Thorin_Stonefist)
+ClassAssertion(pc:Characters pc:Thorin_Stonefist)
+ObjectPropertyAssertion(pc:hasAlignment pc:Thorin_Stonefist pc:CG)
+ObjectPropertyAssertion(pc:hasArmor pc:Thorin_Stonefist armor:Gauntlet_of_Protection)
+ObjectPropertyAssertion(pc:hasClass pc:Thorin_Stonefist pc:Paladin)
+ObjectPropertyAssertion(pc:hasRace pc:Thorin_Stonefist pc:Dwarf)
+ObjectPropertyAssertion(pc:hasSkill pc:Thorin_Stonefist pc:Animal_Handling)
+ObjectPropertyAssertion(pc:hasSkill pc:Thorin_Stonefist pc:Insight)
+ObjectPropertyAssertion(pc:hasSkill pc:Thorin_Stonefist pc:Intimidation)
+ObjectPropertyAssertion(pc:hasSkill pc:Thorin_Stonefist pc:Investigation)
+ObjectPropertyAssertion(pc:hasSkill pc:Thorin_Stonefist pc:Religion)
+ObjectPropertyAssertion(Conditions:hasResistance pc:Thorin_Stonefist Conditions:Disease)
+ObjectPropertyAssertion(Conditions:hasResistance pc:Thorin_Stonefist Conditions:Poison)
+DataPropertyAssertion(pc:hasAC pc:Thorin_Stonefist "18"^^xsd:integer)
+DataPropertyAssertion(pc:hasCharisma pc:Thorin_Stonefist "4"^^xsd:integer)
+DataPropertyAssertion(pc:hasConstitution pc:Thorin_Stonefist "4"^^xsd:integer)
+DataPropertyAssertion(pc:hasDarkvision pc:Thorin_Stonefist "20"^^xsd:decimal)
+DataPropertyAssertion(pc:hasDexerity pc:Thorin_Stonefist "1"^^xsd:decimal)
+DataPropertyAssertion(pc:hasHitDice pc:Thorin_Stonefist "1d10 +4 (cons)")
+DataPropertyAssertion(pc:hasHitPoints pc:Thorin_Stonefist "52"^^xsd:integer)
+DataPropertyAssertion(pc:hasInitiative pc:Thorin_Stonefist "1"^^xsd:decimal)
+DataPropertyAssertion(pc:hasIntelligence pc:Thorin_Stonefist "0"^^xsd:integer)
+DataPropertyAssertion(pc:hasLevel pc:Thorin_Stonefist "7"^^xsd:integer)
+DataPropertyAssertion(pc:hasSpeed pc:Thorin_Stonefist "25"^^xsd:integer)
+DataPropertyAssertion(pc:hasStrength pc:Thorin_Stonefist "4"^^xsd:integer)
+DataPropertyAssertion(pc:hasWisdom pc:Thorin_Stonefist "3"^^xsd:integer)
+DataPropertyAssertion(pc:numberOfAttacks pc:Thorin_Stonefist "2"^^xsd:integer)
+
+# Individual: pc:Warlock (pc:Warlock)
+
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock> pc:Warlock)
+
+# Individual: Conditions:Disease (Conditions:Disease)
+
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> Conditions:Disease)
+
+# Individual: Conditions:Fire (Conditions:Fire)
+
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> Conditions:Fire)
+
+# Individual: Conditions:Poison (Conditions:Poison)
+
+ClassAssertion(<http://www.semanticweb.org/pear/ontologies/2026/0/weapons#Damage> Conditions:Poison)
+
+
+HasKey(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Dimension_Door> (pc:hasSpells) ())
+HasKey(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense> (pc:hasSpells) ())
+HasKey(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mage_Hand> (pc:hasSpells) ())
+HasKey(<http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mind_Silver> (pc:hasSpells) ())
+)

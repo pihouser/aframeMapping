@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/pear/ontologies/2026/0/Spells/"
+     xml:base="http://www.semanticweb.org/pear/ontologies/2026/0/Spells/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells">
+        <rdfs:comment>List of Spells for DND 5e</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#URL -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#URL"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Artificer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Artificer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Bard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Bard"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Dimension_Door -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Dimension_Door">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock"/>
+        <rdfs:URL>https://roll20.net/compendium/dnd5e/Dimension%20Door#content</rdfs:URL>
+        <rdfs:comment>4th level Conjuration
+    Casting Time: 1 action
+    Range: 500 feet
+    Target: See text
+    Components: V
+    Duration: Instantaneous
+    Classes: Bard, Sorcerer, Warlock, Wizard, Spellblade
+    You teleport yourself from your current location to any other spot within range. You arrive at exactly the spot desired. It can be a place you can see, one you can visualize, or one you can describe by stating distance and direction, such as “200 feet straight downward” or “upward to the northwest at a 45-degree angle, 300 feet.”
+    You can bring along objects as long as their weight doesn’t exceed what you can carry. You can also bring one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be within 5 feet of you when you cast this spell.
+    If you would arrive in a place already occupied by an object or a creature, you and any creature traveling with you each take 4d6 force damage, and the spell fails to teleport you.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Sense">
+        <rdfs:comment>The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.
+
+You can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://roll20.net/compendium/dnd5e/Divine%20Sense#content</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Smite -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Divine_Smite">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin"/>
+        <rdfs:URL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://roll20.net/compendium/dnd5e/Divine%20Smite#content</rdfs:URL>
+        <rdfs:comment>2d8</rdfs:comment>
+        <rdfs:comment>Starting at 2nd level, when you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon&apos;s damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Lay_on_Hands -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Lay_on_Hands">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin"/>
+        <rdfs:URL>https://roll20.net/compendium/dnd5e/Lay%20on%20Hands#content</rdfs:URL>
+        <rdfs:comment>1d6 Healing</rdfs:comment>
+        <rdfs:comment>Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.
+
+As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool.
+
+Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.
+
+This feature has no effect on undead and constructs.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mage_Hand -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mage_Hand">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock"/>
+        <rdfs:URL>https://roll20.net/compendium/dnd5e/Mage%20Hand#content</rdfs:URL>
+        <rdfs:comment>Cantrip Conjuration
+
+    Casting Time: 1 action
+    Range: 30 feet
+    Target: A point you choose within range
+    Components: V S
+    Duration: 1 minute
+    Classes: Artificer, Bard, Sorcerer, Warlock, Wizard, Spellblade
+    A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.
+    You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it.
+    The hand can’t attack, activate magic items, or carry more than 10 pounds.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mind_Silver -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Mind_Silver">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Sorcerer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Wizard"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:URL>https://dnd5e.wikidot.com/spell:mind-sliver</rdfs:URL>
+        <rdfs:comment>Source: Tasha&apos;s Cauldron of Everything
+
+Enchantment cantrip
+
+Casting Time: 1 action
+Range: 60 feet
+Components: V
+Duration: 1 round
+
+You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
+
+At Higher Levels. This spell’s damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6).
+
+Spell Lists. Sorcerer (Optional), Warlock (Optional), Wizard (Optional)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Rogue -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Rogue"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Searing_Smite -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Searing_Smite">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Paladin"/>
+        <rdfs:URL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://roll20.net/compendium/dnd5e/Spells:Searing%20Smite?expansion=33335</rdfs:URL>
+        <rdfs:comment>1d6</rdfs:comment>
+        <rdfs:comment>Level 1 Evocation (Paladin)
+
+Casting Time: Bonus Action, which you take immediately after hitting a target with a Melee weapon or an Unarmed Strike
+Range: Self
+Component: V
+Duration: 1 minute
+
+As you hit the target, it takes an extra 1d6 Fire damage from the attack. At the start of each of its turns until the spell ends, the target takes 1d6 Fire damage and then makes a Constitution saving throw. On a failed save, the spell continues. On a successful save, the spell ends.
+
+Using a Higher-Level Spell Slot. All the damage increases by 1d6 for each spell slot level above 1.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Sorcerer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Sorcerer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Spellblade -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Spellblade"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Warlock"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Wizard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pear/ontologies/2026/0/Spells#Wizard"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

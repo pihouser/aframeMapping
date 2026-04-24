@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Geology 1301 Midterm3</title>
+<style>
+  :root{
+    --bg:#071428;
+    --card:#0d2a3a;
+    --accent:#ffd166;
+    --text:#e6f0f2;
+    --muted:#9fb2b8;
+    --modal-bg: rgba(7,20,40,0.95);
+  }
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+  body{background:linear-gradient(180deg,var(--bg),#041521);color:var(--text);padding:18px;box-sizing:border-box;}
+  .wrap{max-width:1150px;margin:0 auto;}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  h1{font-size:20px;margin:0}
+  p.lead{margin:6px 0 0;color:var(--muted);font-size:13px}
+  .board{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .category{background:linear-gradient(180deg,#123845,#0b2d36);padding:12px;border-radius:6px;text-align:center;font-weight:700;color:var(--accent);box-shadow:0 3px 8px rgba(0,0,0,0.45);font-size:14px;}
+  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+  .tile{background:var(--card);padding:22px;border-radius:6px;text-align:center;font-weight:700;font-size:20px;color:var(--accent);cursor:pointer;box-shadow:0 6px 14px rgba(2,12,18,0.6);user-select:none;}
+  .tile.disabled{opacity:0.35;cursor:not-allowed}
+  .controls{display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .scoreboard{background:#06232a;padding:10px;border-radius:6px;display:flex;gap:12px;align-items:center}
+  .team{min-width:160px;padding:8px;border-radius:6px;background:#063740}
+  .team h3{margin:0;font-size:13px;color:var(--accent)}
+  .team .score{font-size:22px;margin-top:6px}
+  button{background:var(--accent);border:none;color:#05222a;padding:8px 12px;border-radius:6px;font-weight:700;cursor:pointer}
+  button.ghost{background:transparent;border:1px solid rgba(255,209,102,0.12);color:var(--accent)}
+  .small{padding:6px 8px;font-size:13px}
+  footer{margin-top:18px;color:var(--muted);font-size:13px}
+  .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;visibility:hidden;opacity:0;transition:all .18s}
+  .modal.show{visibility:visible;opacity:1}
+  .modal-backdrop{position:absolute;inset:0;background:var(--modal-bg)}
+  .modal-card{position:relative;background:#071828;border-radius:8px;padding:20px;max-width:900px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.6);z-index:2}
+  .qtext{font-size:20px;color:var(--text);line-height:1.25}
+  .hint{color:var(--muted);font-size:13px;margin-top:8px}
+  .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+  .answerbox{display:none;background:#042b33;padding:12px;border-radius:6px;margin-top:12px;color:#dff7f0}
+  .meta{font-size:13px;color:var(--muted)}
+  @media (max-width:700px){.board{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,1fr)}.category{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Geology 1301 Midterm (Page 3)</h1>
+      <p class="lead">Click a tile to view the question. Press <strong>A</strong> to reveal answer, or close with <strong>Esc</strong>.</p>
+    </div>
+    <div class="scoreboard" aria-hidden="false">
+      <div class="team" id="teamA">
+        <h3>Team A</h3>
+        <div class="score" id="scoreA">0</div>
+      </div>
+      <div class="team" id="teamB">
+        <h3>Team B</h3>
+        <div class="score" id="scoreB">0</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="boardArea">
+    <div class="board" id="categoryRow"></div>
+    <div class="tiles" id="tilesRow" style="margin-top:8px"></div>
+  </section>
+
+  <div class="controls">
+    <a href="midterm2.html" style="color:var(--accent);font-size:14px">Back to Page 2</a>
+    <button id="resetBtn" class="ghost small">Reset Board</button>
+    <button id="clearScores" class="small">Clear Scores</button>
+    <div style="flex:1"></div>
+    <div class="meta">Edit questions in <code>gameData</code> inside script.</div>
+  </div>
+
+  <footer>
+    <p>Page 3 with new questions. Local copy.</p>
+  </footer>
+</div>
+
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" role="document">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div class="meta" id="modalMeta"></div>
+        <div class="qtext" id="modalQ">Question text</div>
+        <div class="hint" id="modalHint"></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:13px;color:var(--muted)">Value</div>
+        <div style="font-size:26px;font-weight:800;color:var(--accent)" id="modalValue">$200</div>
+      </div>
+    </div>
+    <div class="answerbox" id="answerBox"><strong>Answer:</strong> <span id="modalA"></span></div>
+    <div class="modal-actions">
+      <button id="revealBtn" class="small">Reveal Answer (A)</button>
+      <button id="addA" class="small">+ Team A</button>
+      <button id="addB" class="small">+ Team B</button>
+      <button id="minusA" class="small ghost">− Team A</button>
+      <button id="minusB" class="small ghost">− Team B</button>
+      <button id="closeBtn" class="small ghost">Close (Esc)</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const gameData = {
+  categories: ["Plate Tectonics","Rocks & Minerals","Climate","Water Systems","Natural Hazards"],
+  values: [1,2,3,4,5],
+  tiles: [
+    [
+      { q: "What are the 4 rock types?", a: "igneous, sedimentary, metamorphic, hydrothermal" },
+      { q: "What are 3 properties that can ID sedimentary rocks?", a: "Color, texture, minerals, fossils, 1st & 2nd sturctures" },
+      { q: "What is the primary gas responsible for global warming?", a: "Carbon dioxide (CO2)" },
+      { q: "What percent of the Earth is water?", a: "About 80%" },
+      { q: "What natural hazard is measured using the Richter scale?", a: "Earthquakes" }
+    ],
+    [
+      { q: "What type of boundary creates mountains?", a: "Convergent (subduction zone)" },
+      { q: "What major geologic Structure is created when limestone dissolves in water?", a: "Caves" },
+      { q: "What is the Milankovitch theory linked to?", a: "Long-term climate change and ice ages" },
+      { q: "What are the largest aquifers in the El Paso region?", a: "Mesilla Boson and Hueco Boson" },
+      { q: "What hazard comes from the production of sedimentary rocks", a: "Landslides" }
+    ],
+    [
+      { q: "What type of boundary causes the San Andreas Fault?", a: "Transform boundary" },
+      { q: "Which igneous rock makes up most of the oceanic crust?", a: "Basalt" },
+      { q: "What are the 4 main biological cycles critical to life?", a: "Carbon, Nitrogen, Phosphorus, Sulfur" },
+      { q: "What process creates engery from the sun to plants?", a: "Photosynthesis" },
+      { q: "What hazard is tracked by the Saffir-Simpson scale?", a: "Hurricanes" }
+    ],
+    [
+      { q: "What type of crust is less dense: oceanic or continental?", a: "Continental" },
+      { q: "What are 2 of the 3 types of heat transfer", a: "conduction, convection, radiation" },
+      { q: "What interactions do light experience when hitting something?", a: "Absorption, Reflection, Refraction" },
+      { q: "What is the process where groundwater dissolves rock to form caves?", a: "Chemical weathering (dissolution)" },
+      { q: "What plate boundary is the El Paso region or what is it's name?", a: "Continental Divergent Plate, Rio Grande Rift" }
+    ],
+    [
+      { q: "What geological feature is created at divergent boundaries?", a: "Mid-ocean ridges" },
+      { q: "What structure results when magma cools underground or name a geo site that shows this?", a: "Lacolith, Mt. Cristo Rey" },
+      { q: "What geologic events can impact climate ?", a: "Volcanic, Astroids/planetary" },
+      { q: "What examples exist of aquitic depositional envirnoments?", a: "Lakes, River, Seas, oceans, lagoon" },
+      { q: "What hazards occurs during volcanic eurptions (name 4)?", a: "Pyroclasic flow, laval, bombs, ash, fumaroles, acid rain" }
+    ]
+  ]
+};
+
+// --- UI logic ---
+const categoryRow=document.getElementById('categoryRow');
+const tilesRow=document.getElementById('tilesRow');
+const modal=document.getElementById('modal');
+const modalQ=document.getElementById('modalQ');
+const modalA=document.getElementById('modalA');
+const modalValue=document.getElementById('modalValue');
+const modalMeta=document.getElementById('modalMeta');
+const answerBox=document.getElementById('answerBox');
+const revealBtn=document.getElementById('revealBtn');
+
+let scoreA=0,scoreB=0;
+const scoreAEl=document.getElementById('scoreA');
+const scoreBEl=document.getElementById('scoreB');
+
+function buildBoard(){
+  categoryRow.innerHTML='';
+  gameData.categories.forEach(c=>{const d=document.createElement('div');d.className='category';d.textContent=c;categoryRow.appendChild(d);});
+  tilesRow.innerHTML='';
+  for(let r=0;r<gameData.tiles.length;r++){
+    const row=gameData.tiles[r];
+    for(let c=0;c<gameData.categories.length;c++){
+      const tileData=row[c];
+      const val=gameData.values[r];
+      const t=document.createElement('div');t.className='tile';t.dataset.r=r;t.dataset.c=c;t.dataset.used=tileData.used?'1':'0';t.textContent=`$${val}`;t.addEventListener('click',onTileClick);tilesRow.appendChild(t);
+    }
+  }
+}
+
+function onTileClick(e){
+  const t=e.currentTarget;if(t.dataset.used==='1')return;const r=+t.dataset.r,c=+t.dataset.c;const tile=gameData.tiles[r][c];const val=gameData.values[r];openModal(tile,val,r,c,t);}
+
+function openModal(tile,val,r,c,tileEl){
+  modal.classList.add('show');modal.setAttribute('aria-hidden','false');modalQ.textContent=tile.q;modalA.textContent=tile.a;modalValue.textContent=`$${val}`;modalMeta.textContent=`${gameData.categories[c]} — $${val}`;answerBox.style.display='none';tileEl.classList.add('disabled');tileEl.dataset.used='1';gameData.tiles[r][c].used=true;
+  function add(team){if(team==='A'){scoreA+=val;scoreAEl.textContent=scoreA;}else{scoreB+=val;scoreBEl.textContent=scoreB;}}
+  function minus(team){if(team==='A'){scoreA-=val;scoreAEl.textContent=scoreA;}else{scoreB-=val;scoreBEl.textContent=scoreB;}}
+  const addA=document.getElementById('addA');const addB=document.getElementById('addB');const minusA=document.getElementById('minusA');const minusB=document.getElementById('minusB');const closeBtn=document.getElementById('closeBtn');
+  function clean(){addA.onclick=null;addB.onclick=null;minusA.onclick=null;minusB.onclick=null;closeBtn.onclick=null;}
+  addA.onclick=()=>{add('A');};addB.onclick=()=>{add('B');};minusA.onclick=()=>{minus('A');};minusB.onclick=()=>{minus('B');};closeBtn.onclick=()=>{closeModal();clean();};
+  revealBtn.onclick=()=>{answerBox.style.display='block';};
+  function keyHandler(ev){if(ev.key==='Escape'){closeModal();clean();document.removeEventListener('keydown',keyHandler);}if(ev.key==='a'||ev.key==='A'){answerBox.style.display='block';}}
+  document.addEventListener('keydown',keyHandler);
+}
+
+function closeModal(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');}
+
+document.getElementById('resetBtn').addEventListener('click',()=>{gameData.tiles.forEach(r=>r.forEach(t=>t.used=false));buildBoard();});
+document.getElementById('clearScores').addEventListener('click',()=>{scoreA=0;scoreB=0;scoreAEl.textContent=0;scoreBEl.textContent=0;});
+document.querySelector('.modal-backdrop').addEventListener('click',closeModal);
+document.addEventListener('keydown',(ev)=>{if(ev.key==='Escape'){closeModal();}if((ev.key==='a'||ev.key==='A')&&modal.classList.contains('show')){answerBox.style.display='block';}});
+
+buildBoard();
+</script>
+</body>
+</html>

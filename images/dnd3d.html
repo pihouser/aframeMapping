@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pihouser.com – AFRAME DND MAP (Label Test)</title>
+  <meta name="description" content="A-Frame scene with POI label and hover effect">
+
+  <!-- A-Frame core -->
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+
+  <!-- Look-at component so labels always face the camera -->
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+
+  <!-- Semantic trigger component (external JS file) -->
+  <script src="js/semantic-trigger.js"></script>
+
+</head>
+<body>
+<a-scene>
+
+  <!-- Assets -->
+  <a-assets>
+    <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+    <a-asset-item id="map" src="assets/obj/SwordCoast.glb"></a-asset-item>
+  </a-assets>
+
+  <!-- Lighting -->
+  <a-light type="ambient" intensity="1"></a-light>
+  <a-light type="directional" position="0 5 5" intensity="0.8"></a-light>
+
+  <!-- Camera and cursor -->
+  <a-camera position="0 1.6 0">
+    <a-cursor raycaster="objects: .clickable"></a-cursor>
+  </a-camera>
+
+  <!-- Sky -->
+  <a-sky src="#skyTexture"></a-sky>
+
+  <!-- Map base plane -->
+  <a-plane rotation="-90 0 0" width="20" height="20" color="#888888" position="0 0 0"></a-plane>
+
+  <!-- Map GLB model -->
+  <a-entity
+    gltf-model="#map"
+    position="0 1 -9.2"
+    rotation="14.6 0 0"
+    scale="0.08 0.08 0.06"
+    frustum-culled="false"
+    material="shader: flat; color: #D2B48C">
+  </a-entity>
+
+  <!-- POI sphere with semantic-trigger component -->
+  <a-sphere
+    id="poi-baldurs-gate"
+    class="clickable"
+    position="-0.9 1 -2.8"
+    radius="0.05"
+    material="shader: flat; color: #4CC3D9"
+    data-uri="http://www.semanticweb.org/pear/ontologies/2026/0/11-gis#BaldursGate"
+    semantic-trigger="label: Baldur's Gate"
+  ></a-sphere>
+
+</a-scene>
+</body>
+</html>

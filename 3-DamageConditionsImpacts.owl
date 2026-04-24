@@ -1,0 +1,915 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/pihouser/ontologies/2019/8/untitled-ontology-141#"
+     xml:base="http://www.semanticweb.org/pihouser/ontologies/2019/8/untitled-ontology-141"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Conditions="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#"
+     xmlns:untitled-ontology-141="http://www.semanticweb.org/pihouser/ontologies/2019/8/untitled-ontology-141#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions">
+        <rdfs:comment>1.0.1 - 1/03/2026: PH: Resistances / Immunities
+1.0.0 - 11/09/2019, PH: Import excel sheet with conditions/damages</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="f* (xsd:string)">Individual: @E* (rdfs:Label)
+  Types: Conditions
+  Facts:
+     hasRoll @B* (xsd:float), 
+     hasHit @C* (xsd:string),
+     hasAdvantage @D* (xsd:string),
+     hasImpact </rdfs:isDefinedBy>
+        <owl:versionInfo>1.0.0 - Import excel sheet with celife json</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasCondition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasHit -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasHit"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasImmunity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasImmunity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasImpact -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasImpact"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasResistance -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasResistance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasRoll -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasRoll">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasVantage -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasVantage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasCondition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasCondition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasHit_Location -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasHit_Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasID"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasImpact -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasImpact"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasRoll -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasRoll">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasVantage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#hasVantage"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#AC- -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#AC-">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#AC-"/>
+        <rdfs:label>AC-</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ArmorHit -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ArmorHit">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ArmorHit"/>
+        <rdfs:label>Armor Hit</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Back -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Back">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Back"/>
+        <rdfs:label>Back</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHA- -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHA-">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHA-"/>
+        <rdfs:label>CHA - </rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHABackToNormal -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHABackToNormal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHABackToNormal"/>
+        <rdfs:label>CHA back to normal</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Chest -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Chest">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Chest"/>
+        <rdfs:label>Chest</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#DisabledWeapon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#DisabledWeapon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#DisabledWeapon"/>
+        <rdfs:label>Disabled Weapon</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disease -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disease"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Eyes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Eyes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Eyes"/>
+        <rdfs:label>Eyes</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Fire -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Fire"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#FleshWound -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#FleshWound">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#FleshWound"/>
+        <rdfs:label>Flesh Wound</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Headshot -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Headshot">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Headshot"/>
+        <rdfs:label>Headshot</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Heart -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Heart">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Heart"/>
+        <rdfs:label>Heart</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ImmediateClericRequired -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ImmediateClericRequired">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ImmediateClericRequired"/>
+        <rdfs:label>Immediate Cleric Required</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ImmediateHealRequired -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ImmediateHealRequired">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#ImmediateHealRequired"/>
+        <rdfs:label>Immediate Heal Required</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#IncreasedLootDrop -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#IncreasedLootDrop">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#IncreasedLootDrop"/>
+        <rdfs:label>Increased Loot Drop</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#IronsmithMaybeRequired -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#IronsmithMaybeRequired">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#IronsmithMaybeRequired"/>
+        <rdfs:label>Ironsmith maybe required</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Knee -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Knee">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Knee"/>
+        <rdfs:label>Knee</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Leg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Leg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Leg"/>
+        <rdfs:label>Leg</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Miss -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Miss">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Miss"/>
+        <rdfs:label>Miss</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MissGlance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MissGlance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MissGlance"/>
+        <rdfs:label>Miss Glance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#PlayerDefined -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#PlayerDefined">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#PlayerDefined"/>
+        <rdfs:label>Player Defined</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Poison -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Poison"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#RetiresOrAlwaysTalksAboutIt -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#RetiresOrAlwaysTalksAboutIt">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#RetiresOrAlwaysTalksAboutIt"/>
+        <rdfs:label>Retires or Always talks about it</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Shoulder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Shoulder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Shoulder"/>
+        <rdfs:label>Shoulder</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Stomach -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Stomach">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Stomach"/>
+        <rdfs:label>Stomach</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#WeaponHit -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#WeaponHit">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#WeaponHit"/>
+        <rdfs:label>Weapon Hit</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#altArm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#altArm">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#altArm"/>
+        <rdfs:label>alt Arm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#altHand -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#altHand">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#altHand"/>
+        <rdfs:label>alt Hand</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Distracted</Conditions:hasCondition>
+        <Conditions:hasHit_Location>alt Hand</Conditions:hasHit_Location>
+        <Conditions:hasID>k</Conditions:hasID>
+        <Conditions:hasImpact>May Heal Slowly  / Short Rest</Conditions:hasImpact>
+        <Conditions:hasVantage>Disadvantage / Weapon</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d11">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Grappled</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Chest</Conditions:hasHit_Location>
+        <Conditions:hasID>11</Conditions:hasID>
+        <Conditions:hasImpact>May Heal Slowly / Long Rest</Conditions:hasImpact>
+        <Conditions:hasVantage>Delayed/Disabled</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Charmed</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Back</Conditions:hasHit_Location>
+        <Conditions:hasID>i</Conditions:hasID>
+        <Conditions:hasImpact>May Heal Slowly / Long Rest</Conditions:hasImpact>
+        <Conditions:hasVantage>Disctracted/DEX-</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d13">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Intoxicated</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Stomach</Conditions:hasHit_Location>
+        <Conditions:hasID>h</Conditions:hasID>
+        <Conditions:hasImpact>Immediate Heal Required</Conditions:hasImpact>
+        <Conditions:hasVantage>Disabled/Retreat</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Poisoned</Conditions:hasCondition>
+        <Conditions:hasHit_Location>dom. Arm</Conditions:hasHit_Location>
+        <Conditions:hasID>g</Conditions:hasID>
+        <Conditions:hasImpact>Immediate Heal Required</Conditions:hasImpact>
+        <Conditions:hasVantage>AC 1-14 only*exp20</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d15 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d15">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Pertrified</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Dom. Hand</Conditions:hasHit_Location>
+        <Conditions:hasID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</Conditions:hasID>
+        <Conditions:hasImpact>Immediate Heal Required</Conditions:hasImpact>
+        <Conditions:hasRoll rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</Conditions:hasRoll>
+        <Conditions:hasVantage>Disabled weapon</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d16 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d16">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Blind</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Eyes</Conditions:hasHit_Location>
+        <Conditions:hasID>e</Conditions:hasID>
+        <Conditions:hasImpact>Immediate Cleric Required</Conditions:hasImpact>
+        <Conditions:hasVantage>Disabled/Panic</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d17 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d17">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Incapactitated</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Knee</Conditions:hasHit_Location>
+        <Conditions:hasID>d</Conditions:hasID>
+        <Conditions:hasImpact>Retires or Always talks about it</Conditions:hasImpact>
+        <Conditions:hasVantage>Disabled/Humilated</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d18 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d18">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Paralyzed</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Heart</Conditions:hasHit_Location>
+        <Conditions:hasID>c</Conditions:hasID>
+        <Conditions:hasImpact>Immediate Cleric Required</Conditions:hasImpact>
+        <Conditions:hasVantage>Dead/Disabled</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d19 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d19">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Unconscious</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Headshot</Conditions:hasHit_Location>
+        <Conditions:hasID>b</Conditions:hasID>
+        <Conditions:hasImpact>Immediate Heal Required</Conditions:hasImpact>
+        <Conditions:hasVantage>Dead/Disabled</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Exhaustion</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Miss</Conditions:hasHit_Location>
+        <Conditions:hasID>s</Conditions:hasID>
+        <Conditions:hasImpact>CHA back to normal</Conditions:hasImpact>
+        <Conditions:hasVantage>no alt. Hit / CHA+</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Prone</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Miss Glance</Conditions:hasHit_Location>
+        <Conditions:hasID>r</Conditions:hasID>
+        <Conditions:hasImpact>CHA back to normal / XP +</Conditions:hasImpact>
+        <Conditions:hasVantage>alt. Hit / CHA-</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Restrained</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Armor Hit</Conditions:hasHit_Location>
+        <Conditions:hasID>q</Conditions:hasID>
+        <Conditions:hasImpact>Ironsmith maybe required</Conditions:hasImpact>
+        <Conditions:hasVantage>AC-</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Stunned</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Weapon Hit</Conditions:hasHit_Location>
+        <Conditions:hasID>p</Conditions:hasID>
+        <Conditions:hasImpact>Ironsmith maybe required</Conditions:hasImpact>
+        <Conditions:hasVantage>Weapon Damage/Drop</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Given up</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Flesh Wound</Conditions:hasHit_Location>
+        <Conditions:hasID>o</Conditions:hasID>
+        <Conditions:hasImpact>50% chance of infection if not healed</Conditions:hasImpact>
+        <Conditions:hasVantage>Delayed/INT-</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Frightened</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Leg</Conditions:hasHit_Location>
+        <Conditions:hasID>n</Conditions:hasID>
+        <Conditions:hasImpact>May Heal Slowly  / Short Rest</Conditions:hasImpact>
+        <Conditions:hasVantage>Disadvantage / DEX-</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Deafended</Conditions:hasCondition>
+        <Conditions:hasHit_Location>Shoulder</Conditions:hasHit_Location>
+        <Conditions:hasID>m</Conditions:hasID>
+        <Conditions:hasImpact>May Heal Slowly  / Short Rest</Conditions:hasImpact>
+        <Conditions:hasVantage>Disadvantage / DEX-</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#d9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Conditions:hasCondition>Confused</Conditions:hasCondition>
+        <Conditions:hasHit_Location>alt Arm</Conditions:hasHit_Location>
+        <Conditions:hasID>l</Conditions:hasID>
+        <Conditions:hasImpact>May Heal Slowly  / Short Rest</Conditions:hasImpact>
+        <Conditions:hasVantage>Disadvantage / STR-</Conditions:hasVantage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#dom.Arm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#dom.Arm">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#dom.Arm"/>
+        <rdfs:label>dom. Arm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#dom.Hand -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#dom.Hand">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#dom.Hand"/>
+        <rdfs:label>dom. Hand</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#50PercentChanceOfInfectionIfNotHealed -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#50PercentChanceOfInfectionIfNotHealed">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#50PercentChanceOfInfectionIfNotHealed"/>
+        <rdfs:label>50 percent chance of infection if not healed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#AC1-14only*exp20 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#AC1-14only*exp20">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#AC1-14only*exp20"/>
+        <rdfs:label>AC 1-14 only*exp20</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHABackToNormal/XP+ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHABackToNormal/XP+">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#CHABackToNormal/XP+"/>
+        <rdfs:label>CHA back to normal / XP +</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Crit/Exploding -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Crit/Exploding">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Crit/Exploding"/>
+        <rdfs:label>Crit / Exploding </rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dead/Disabled -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dead/Disabled">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dead/Disabled"/>
+        <rdfs:label>Dead/Disabled</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Delayed/Disabled -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Delayed/Disabled">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Delayed/Disabled"/>
+        <rdfs:label>Delayed/Disabled</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Delayed/INT- -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Delayed/INT-">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Delayed/INT-"/>
+        <rdfs:label>Delayed/INT-</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Humilated -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Humilated">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Humilated"/>
+        <rdfs:label>Disabled/Humilated</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Panic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Panic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Panic"/>
+        <rdfs:label>Disabled/Panic</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Retreat -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Retreat">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disabled/Retreat"/>
+        <rdfs:label>Disabled/Retreat</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/DEX- -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/DEX-">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/DEX-"/>
+        <rdfs:label>Disadvantage / DEX-</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/STR- -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/STR-">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/STR-"/>
+        <rdfs:label>Disadvantage / STR-</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/Weapon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/Weapon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disadvantage/Weapon"/>
+        <rdfs:label>Disadvantage / Weapon</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disctracted/DEX- -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disctracted/DEX-">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Disctracted/DEX-"/>
+        <rdfs:label>Disctracted/DEX-</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MayHealSlowly/LongRest -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MayHealSlowly/LongRest">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MayHealSlowly/LongRest"/>
+        <rdfs:label>May Heal Slowly / Long Rest</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MayHealSlowly/ShortRest -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MayHealSlowly/ShortRest">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Impact"/>
+        <Conditions:hasImpact rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#MayHealSlowly/ShortRest"/>
+        <rdfs:label>May Heal Slowly  / Short Rest</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Miss/Reflects -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Miss/Reflects">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Location"/>
+        <Conditions:hasHit rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Miss/Reflects"/>
+        <rdfs:label>Miss/Reflects</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#WeaponDamage/Drop -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#WeaponDamage/Drop">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#WeaponDamage/Drop"/>
+        <rdfs:label>Weapon Damage/Drop</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#alt.Hit/CHA- -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#alt.Hit/CHA-">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#alt.Hit/CHA-"/>
+        <rdfs:label>alt. Hit / CHA-</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#noalt.Hit/CHA+ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#noalt.Hit/CHA+">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Advantage"/>
+        <Conditions:hasVantage rdf:resource="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#noalt.Hit/CHA+"/>
+        <rdfs:label>no alt. Hit / CHA+</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

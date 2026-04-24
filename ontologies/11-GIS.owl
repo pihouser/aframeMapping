@@ -1,0 +1,82 @@
+Prefix(:=<http://www.semanticweb.org/pear/ontologies/2026/0/11-dndmap#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/pear/ontologies/2026/0/11-dndmap>
+Annotation(rdfs:comment "DnD Map data")
+
+Declaration(Class(:POI))
+Declaration(ObjectProperty(:hasFeature))
+Declaration(ObjectProperty(:hasLayer))
+Declaration(ObjectProperty(:hasType))
+Declaration(DataProperty(:hasAframe))
+Declaration(DataProperty(:hasElevation))
+Declaration(DataProperty(:hasLocation))
+Declaration(DataProperty(:hasX))
+Declaration(DataProperty(:hasY))
+Declaration(DataProperty(:hasZ))
+Declaration(NamedIndividual(:BaldursGate))
+Declaration(NamedIndividual(:City))
+Declaration(AnnotationProperty(:hasUnits))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :hasFeature (:hasFeature)
+
+SymmetricObjectProperty(:hasFeature)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :hasElevation (:hasElevation)
+
+AnnotationAssertion(:hasUnits :hasElevation "in Meters")
+
+# Data Property: :hasLocation (:hasLocation)
+
+AnnotationAssertion(rdfs:comment :hasLocation "Has aFrame Location data on Map (Sword Coast)
+Location = (-.9 1 -2.8}
+Where Corrdinates are X Z Y")
+SubDataPropertyOf(:hasLocation :hasAframe)
+
+# Data Property: :hasX (:hasX)
+
+AnnotationAssertion(:hasUnits :hasX "According to aFrame reference
+X = Down to Up  (Pos numbers)")
+
+# Data Property: :hasY (:hasY)
+
+AnnotationAssertion(:hasUnits :hasY "According to aFrame reference
+Y = Left to Right (Pos numbers)")
+
+# Data Property: :hasZ (:hasZ)
+
+AnnotationAssertion(:hasUnits :hasZ "According to aFrame reference
+Z axis = (Elevation)")
+
+
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :BaldursGate (:BaldursGate)
+
+ObjectPropertyAssertion(:hasFeature :BaldursGate :City)
+DataPropertyAssertion(:hasElevation :BaldursGate "0"^^xsd:integer)
+DataPropertyAssertion(:hasLocation :BaldursGate "-.9 1 -2.8"^^xsd:string)
+DataPropertyAssertion(:hasX :BaldursGate "-0.9"^^xsd:float)
+DataPropertyAssertion(:hasY :BaldursGate "-2.8"^^xsd:float)
+DataPropertyAssertion(:hasZ :BaldursGate "1.0"^^xsd:float)
+
+
+)

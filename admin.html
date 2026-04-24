@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Initiative Admin</title>
+<style>
+    body {
+        background: #1b1b1b;
+        color: white;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    input {
+        margin: 4px;
+        padding: 5px;
+    }
+    button {
+        margin: 5px;
+        padding: 6px 12px;
+        font-weight: bold;
+    }
+    .row {
+        margin: 10px 0;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #444;
+    }
+</style>
+</head>
+<body>
+
+<h2>Initiative Admin</h2>
+
+<div>
+    <input id="cname" placeholder="Name">
+    <input id="croll" type="number" placeholder="Roll">
+    <input id="ccolor" type="color" value="#5f5fff">
+    <button onclick="addChar()">Add / Update</button>
+</div>
+
+<div class="row">
+    <label for="highlightSel">Highlight turn:</label>
+    <select id="highlightSel" onchange="setHighlight()"></select>
+</div>
+
+<div class="row">
+    <button onclick="clearAll()" style="background:#aa0000;color:white;">Clear All</button>
+</div>
+
+<h3>Current Characters</h3>
+<div id="list"></div>
+
+<script>
+function load() {
+    return JSON.parse(localStorage.getItem("initiative")) || [];
+}
+
+function save(list) {
+    localStorage.setItem("initiative", JSON.stringify(list));
+    updateDisplay();
+}
+
+function addChar() {
+    const name = document.getElementById("cname").value.trim();
+    const roll = parseInt(document.getElementById("croll").value);
+    const color = document.getElementById("ccolor").value;
+
+    if (!name || isNaN(roll)) return;
+
+    const list = load();
+    const existing = list.find(c => c.name === name);
+
+    if (existing) {
+        existing.roll = roll;
+        existing.color = color;
+    } else {
+        list.push({
+            id: crypto.randomUUID(),
+            name,
+            roll,
+            color
+        });
+    }
+
+    save(list);
+    updateHighlightSelect();
+}
+
+function updateDisplay() {
+    const list = load();
+    const container = document.getElementById("list");
+
+    container.innerHTML = "";
+    list.sort((a,b)=>b.roll-a.roll);
+
+    list.forEach(c => {
+        const div = document.createElement("div");
+        div.textContent = `${c.name} (${c.roll})`;
+        container.appendChild(div);
+    });
+
+    window.dispatchEvent(new StorageEvent("storage"));
+}
+
+function updateHighlightSelect() {
+    const sel = document.getElementById("highlightSel");
+    const list = load();
+    const highlight = localStorage.getItem("highlight") || "";
+
+    sel.innerHTML = "<option value=''>None</option>";
+
+    list.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c.id;
+        opt.textContent = c.name;
+        if (c.id === highlight) opt.selected = true;
+        sel.appendChild(opt);
+    });
+}
+
+function setHighlight() {
+    const value = document.getElementById("highlightSel").value;
+    localStorage.setItem("highlight", value);
+    window.dispatchEvent(new StorageEvent("storage"));
+}
+
+function clearAll() {
+    localStorage.removeItem("initiative");
+    localStorage.removeItem("highlight");
+    updateDisplay();
+    updateHighlightSelect();
+}
+
+updateDisplay();
+updateHighlightSelect();
+</script>
+
+</body>
+</html>

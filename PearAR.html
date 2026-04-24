@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+/*******************************************************************************
+ * AFrame DEM Test page
+ *
+ * @file        PearAR.html
+ * @author      Perry Houser
+ * @copyright   copyright (c) 2020, pihouser
+ * @license     GNU
+ * @link        https://www.pihouser.com/PearAR.html
+ * @version     1.0
+ * @secuity     SSL; https
+ * @assests     assets/obj/
+ *
+ ******************************************************************************/
+
+<html>
+  <head>
+    <title>pihouser.com - AFRAME DEM TEST </title>
+    <meta name="description" content="Basic Scene with Environment - A-Frame">
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+
+      /**
+       * Assests
+       */
+      <a-assets>
+        <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+        <a-asset-item id="mckell-obj" src="assets/obj/mckell.obj"></a-asset-item>
+        <a-asset-item id="mckell-mtl" src="assets/obj/mckell.mtl"></a-asset-item>
+          <!-- Audio, path should be relative and tag within a-assets -->
+          <audio src="assets/obj/backgroundnoise.wav" autoplay preload></audio>
+      </a-assets>
+
+      /**
+       * Scene
+       */
+      <a-scene environment="preset: yavapai">
+        <a-sky src="#skyTexture"></a-sky>
+        <!--  Note order: XZY for scale, Apply an image texture -->
+        <a-entity gltf-model="#mcr"; src="assets/obj/mcrtex.png" position="0 0 -20" rotation="0 142 0" scale="2 2 2"></a-entity>
+        <a-entity obj-model="obj: #mckell-obj; mtl: #mckell-mtl"; position="0 1 -20" rotation="0 0 45" scale=".05 .05 .05" ></a-entity>
+        <a-entity text="value: testing mode; color: #FAFAFA; width: 5; anchor: align" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-entity>
+        <a-entity text="value: Geologic Faults are represented in red; color: #FF1122; width: 5; anchor: align" position="-0.9 0.2 -4" scale="1.5 1.5 1.5"></a-entity>
+
+        /**
+         * Camera. Must be nested within scene.
+         */
+        <a-camera>
+          <a-cursor color="#FAFAFA"></a-cursor>
+          <a-entity cursor="rayOrigin: mouse"></a-entity>
+        </a-camera>
+
+      </a-scene>
+
+  </body>
+</html>

@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/pear/ontologies/2026/0/weapons"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/pear/ontologies/2026/0/weapons">
+    <Prefix name="" IRI="http://www.semanticweb.org/pear/ontologies/2026/0/weapons/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal>D&amp;D Weapons ontology module</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Ammunition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Bows"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Magical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Martial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Thrown"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Two_Handed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Versatile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Condition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Damage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Heavy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Melee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#One_handed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ranged"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Simple"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Swords"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#damageType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDamage"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Arrow"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bludgeoning"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Dagger"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Disease"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Fire"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Javelin"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Longbow"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Longsword"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Piercing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Poison"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Shortbow"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Shortsword"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Slashing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Warhammer"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1d10"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1d100"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1d12"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1d4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1d6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1d8"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Two_Handed"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Versatile"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Versatile"/>
+        <Class IRI="#One_handed"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Ammunition"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Bows"/>
+        <Class IRI="#Ranged"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Magical"/>
+        <Class IRI="#Condition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Martial"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Thrown"/>
+        <Class IRI="#Ranged"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Two_Handed"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Versatile"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Damage"/>
+        <Class IRI="#Condition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Heavy"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Melee"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#One_handed"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ranged"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Simple"/>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Weapons"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Swords"/>
+        <Class IRI="#Melee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <Class IRI="#Condition"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Ammunition"/>
+        <NamedIndividual IRI="#Arrow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Damage"/>
+        <NamedIndividual IRI="#Bludgeoning"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Thrown"/>
+        <NamedIndividual IRI="#Dagger"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Melee"/>
+        <NamedIndividual IRI="#Dagger"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Ranged"/>
+        <NamedIndividual IRI="#Dagger"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Damage"/>
+        <NamedIndividual IRI="#Disease"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Damage"/>
+        <NamedIndividual IRI="#Fire"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Thrown"/>
+        <NamedIndividual IRI="#Javelin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Versatile"/>
+        <NamedIndividual IRI="#Javelin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Melee"/>
+        <NamedIndividual IRI="#Javelin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Ammunition"/>
+        <NamedIndividual IRI="#Longbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Bows"/>
+        <NamedIndividual IRI="#Longbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Two_Handed"/>
+        <NamedIndividual IRI="#Longbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Heavy"/>
+        <NamedIndividual IRI="#Longbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Martial"/>
+        <NamedIndividual IRI="#Longsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Versatile"/>
+        <NamedIndividual IRI="#Longsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Melee"/>
+        <NamedIndividual IRI="#Longsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Swords"/>
+        <NamedIndividual IRI="#Longsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Damage"/>
+        <NamedIndividual IRI="#Piercing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Damage"/>
+        <NamedIndividual IRI="#Poison"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Ammunition"/>
+        <NamedIndividual IRI="#Shortbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Bows"/>
+        <NamedIndividual IRI="#Shortbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Two_Handed"/>
+        <NamedIndividual IRI="#Shortbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Simple"/>
+        <NamedIndividual IRI="#Shortbow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Martial"/>
+        <NamedIndividual IRI="#Shortsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Versatile"/>
+        <NamedIndividual IRI="#Shortsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Melee"/>
+        <NamedIndividual IRI="#Shortsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Swords"/>
+        <NamedIndividual IRI="#Shortsword"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Damage"/>
+        <NamedIndividual IRI="#Slashing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pear/ontologies/2026/0/pc#Martial"/>
+        <NamedIndividual IRI="#Warhammer"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <NamedIndividual IRI="#1d10"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <NamedIndividual IRI="#1d100"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <NamedIndividual IRI="#1d12"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <NamedIndividual IRI="#1d4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <NamedIndividual IRI="#1d6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/pihouser/ontologies/2019/8/Conditions#Dice"/>
+        <NamedIndividual IRI="#1d8"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#damageType"/>
+        <NamedIndividual IRI="#Javelin"/>
+        <NamedIndividual IRI="#Piercing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDamage"/>
+        <NamedIndividual IRI="#Javelin"/>
+        <NamedIndividual IRI="#1d6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#damageType"/>
+        <NamedIndividual IRI="#Longbow"/>
+        <NamedIndividual IRI="#Piercing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDamage"/>
+        <NamedIndividual IRI="#Longbow"/>
+        <NamedIndividual IRI="#1d8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDamage"/>
+        <NamedIndividual IRI="#Longsword"/>
+        <NamedIndividual IRI="#Slashing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDamage"/>
+        <NamedIndividual IRI="#Longsword"/>
+        <NamedIndividual IRI="#1d10"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#damageType"/>
+        <NamedIndividual IRI="#Shortbow"/>
+        <NamedIndividual IRI="#Piercing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDamage"/>
+        <NamedIndividual IRI="#Shortbow"/>
+        <NamedIndividual IRI="#1d6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#damageType"/>
+        <NamedIndividual IRI="#Shortsword"/>
+        <NamedIndividual IRI="#Slashing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDamage"/>
+        <NamedIndividual IRI="#Shortsword"/>
+        <NamedIndividual IRI="#1d8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#damageType"/>
+        <NamedIndividual IRI="#Warhammer"/>
+        <NamedIndividual IRI="#Bludgeoning"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDamage"/>
+        <NamedIndividual IRI="#Warhammer"/>
+        <NamedIndividual IRI="#1d8"/>
+    </ObjectPropertyAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Arrow</IRI>
+        <Literal>You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.
+
+If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon (see &quot;Improvised Weapons&quot; later in the section). A sling must be loaded to deal any damage when used in this way.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bludgeoning</IRI>
+        <Literal>Blunt force attacks—hammers, falling, constriction, and the like—deal bludgeoning damage.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dagger</IRI>
+        <Literal>Dagger
+Melee weapon (simple, dagger)
+
+Finesse. When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.
+
+Light. A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons.
+
+Range. A weapon that can be used to make a ranged attack has a range in parentheses after the ammunition or thrown property. The range lists two numbers. The first is the weapon&apos;s normal range in feet, and the second indicates the weapon&apos;s long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can&apos;t attack a target beyond the weapon&apos;s long range. 
+
+Thrown. If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property.
+
+Damage: 1d4
+Damage Type: Piercing
+Properties: Finesse, Light, Range, Thrown
+Range: 20/60
+Weight: 1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Javelin</IRI>
+        <Literal>Javelin
+Melee weapon (simple, javelin)
+
+Range. A weapon that can be used to make a ranged attack has a range in parentheses after the ammunition or thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second indicates the weapon’s long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can’t attack a target beyond the weapon’s long range.
+
+Thrown. If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property. 
+
+Damage: 1d6
+Damage Type: Piercing
+Properties: Range, Thrown
+Range: 30/120
+Weight: 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Longbow</IRI>
+        <Literal>Longbow
+Ranged weapon (martial, longbow)
+
+Ammunition. You can use a weapon that has the Ammunition property to make a Ranged Attack only if you have Ammunition to fire from the weapon. Each time you Attack with the weapon, you expend one piece of Ammunition. Drawing the Ammunition from a quiver, case, or other container is part of the Attack. At the end of the battle, you can recover half your expended Ammunition by taking a minute to Search the Battlefield.
+
+If you use a weapon that has the Ammunition property to make a melee Attack, you treat the weapon as an Improvised Weapon. A sling must be loaded to deal any damage when used in this way.
+
+Heavy. Small creatures have disadvantage on attack rolls with heavy weapons. A heavy weapon&apos;s size and bulk make it too large for a Small creature to use effectively.
+
+Range. A weapon that can be used to make a ranged attack has a range in parentheses after the ammunition or thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second indicates the weapon’s long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can’t attack a target beyond the weapon’s long range.
+
+Two-Handed. This weapon requires two hands when you attack with it.
+
+Damage: 1d8
+Damage Type: Piercing
+Properties: Ammunition, Heavy, Range, Two-Handed
+Range: 150/600
+Weight: 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Longsword</IRI>
+        <Literal>Longsword
+Melee weapon (martial, longsword)
+
+Versatile. This weapon can be used with one or two hands. A damage value in parentheses appears with the property–the damage when the weapon is used with two hands to make a melee attack.
+
+Damage: 1d8 (1d10)
+Damage Type: Slashing
+Properties: Versatile
+Weight: 3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Piercing</IRI>
+        <Literal>Piercing is a damage type from weapons like arrows, daggers, and spears, dealing damage by puncturing. It&apos;s often associated with Dexterity-based finesse weapons but has specific rules for critical hits, like the Piercer feat allowing damage rerolls or the optional &quot;Impale&quot; critical hit rule for larger weapons to potentially inflict Exhaustion. Creatures like skeletons often resist piercing damage, while others (like dragons) might be vulnerable, affecting combat effectiveness</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Shortbow</IRI>
+        <Literal>Shortbow
+Ranged weapon (simple, shortbow)
+
+Ammunition. You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.
+
+If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon (see &quot;Improvised Weapons&quot; later in the section). A sling must be loaded to deal any damage when used in this way.
+
+Range. A weapon that can be used to make a ranged attack has a range in parentheses after the ammunition or thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second indicates the weapon’s long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can’t attack a target beyond the weapon’s long range.
+
+Two-Handed. This weapon requires two hands when you attack with it.
+
+Damage: 1d6
+Damage Type: Piercing
+Properties: Ammunition, Range, Two-Handed
+Range: 80/320
+Weight: 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Shortsword</IRI>
+        <Literal>Longsword
+Melee weapon (martial, longsword)
+
+Versatile. This weapon can be used with one or two hands. A damage value in parentheses appears with the property–the damage when the weapon is used with two hands to make a melee attack.
+
+Damage: 1d8 (1d10)
+Damage Type: Slashing
+Properties: Versatile
+Weight: 3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Slashing</IRI>
+        <Literal>Damage Type: Deals damage from cutting edges.
+Common Sources: Swords (longsword, scimitar), axes (handaxe, greataxe), and monster attacks (claws, bites).
+Creature Resistances/Immunities: Some creatures (like Skeletons) resist or are immune to slashing, while others are vulnerable (like Black Puddings), making it situationally important. 
+
+Optional &amp; Feat-Based Enhancements
+
+    Slasher Feat (from Tasha&apos;s Cauldron of Everything):
+        Speed Reduction: Hit targets have their speed reduced by 10 feet until your next turn.
+        Critical Hit Effect: On a crit, the target has disadvantage on attack rolls until your next turn.
+    Homebrew/Optional Rules: Some tables use additional rules, such as:
+        Limb Removal: A critical hit with a slashing weapon can remove a limb from small or medium creatures.
+        Cleaving: An attack on a crit might hit an adjacent enemy for half damage if it would have hit them too.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Warhammer</IRI>
+        <Literal>Versatile. This weapon can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.
+
+Damage: 1d8 (1d10)
+Damage Type: Bludgeoning
+Properties: Versatile
+Weight: 2</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
