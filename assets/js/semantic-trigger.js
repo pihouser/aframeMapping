@@ -1,4 +1,4 @@
-const SPARQL_ENDPOINT = "http://69.48.163.69:3030/dnd/query";
+const SPARQL_ENDPOINT = "https://sparql.pihouser.com/dnd/query";
 
 AFRAME.registerComponent('semantic-trigger', {
   schema: {
@@ -8,6 +8,7 @@ AFRAME.registerComponent('semantic-trigger', {
   init: function () {
     const el = this.el;
 
+    // Create floating label above POI
     const label = document.createElement('a-entity');
     label.setAttribute('text', {
       value: this.data.label,
@@ -70,6 +71,14 @@ AFRAME.registerComponent('semantic-trigger', {
       const ignoredNamespaces = ['rdf-syntax-ns#', '/owl#'];
       const ignoredPredicates = new Set(['type', 'label', 'comment', 'seeAlso', 'sameAs']);
 
+      const getLocalName = (iri) => {
+        if (!iri) return '';
+        const hash = iri.lastIndexOf('#');
+        const slash = iri.lastIndexOf('/');
+        const idx = Math.max(hash, slash);
+        return idx >= 0 ? iri.slice(idx + 1) : iri;
+      };
+
       const grouped = {
         Region: [],
         Faction: [],
@@ -77,29 +86,23 @@ AFRAME.registerComponent('semantic-trigger', {
       };
 
       bindings.forEach((binding) => {
-        const row = {
-          p: binding.p || { value: '' },
-          o: binding.o,
-          label: binding.label
-        };
+        const predicate = binding.p?.value || '';
+        const pred = getLocalName(predicate);
 
-        const predicate = row.p.value || '';
-        const pred = row.p.value.split('#').pop();
+        const isIgnoredNamespace = ignoredNamespaces.some(ns => predicate.includes(ns));
+        if (isIgnoredNamespace || ignoredPredicates.has(pred)) return;
 
-        const isIgnoredNamespace = ignoredNamespaces.some((ns) => predicate.includes(ns));
-        if (isIgnoredNamespace || ignoredPredicates.has(pred)) {
-          return;
-        }
+        const labelKey = predicateLabels[pred];
+        if (!labelKey) return;
 
-        const label = predicateLabels[pred];
-        if (!label) {
-          return;
-        }
+        const objectValue = binding.o?.value || '(no object)';
+        const labelValue = binding.label?.value;
 
-        const objectValue = row.o?.value || '(no object)';
-        const labelValue = row.label?.value;
-        const displayValue = labelValue ? `${objectValue} (${labelValue})` : objectValue;
-        grouped[label].push(displayValue);
+        const displayValue = labelValue
+          ? `${objectValue} (${labelValue})`
+          : objectValue;
+
+        grouped[labelKey].push(displayValue);
       });
 
       const categoryOrder = ['Region', 'Faction', 'Connected To'];
@@ -108,6 +111,7 @@ AFRAME.registerComponent('semantic-trigger', {
       categoryOrder.forEach((category) => {
         grouped[category].forEach((value) => {
           hasAny = true;
+
           const row = document.createElement('div');
           row.style.margin = '4px 0';
 
@@ -132,8 +136,6 @@ AFRAME.registerComponent('semantic-trigger', {
       output.appendChild(section);
     };
 
-    el.addEventListener('mouseover', show);
-    el.addEventListener('mouseout', hide);
     el.addEventListener('mouseenter', show);
     el.addEventListener('mouseleave', hide);
 
@@ -174,7 +176,7 @@ AFRAME.registerComponent('semantic-trigger', {
         });
 
         if (!res.ok) {
-          throw new Error(`SPARQL request failed: ${res.status} ${res.statusText}`);
+          throw new Error(`SPARQL request failed: ${res.status}`);
         }
 
         const json = await res.json();
@@ -188,9 +190,10 @@ AFRAME.registerComponent('semantic-trigger', {
 
         renderResults(output, uri, bindings);
         el.setAttribute('color', '#BD24FF');
+
       } catch (err) {
         console.error('SPARQL error:', err);
-        setOutputMessage(output, 'Semantic Data', `Error for ${uri}: ${err.message}`);
+        setOutputMessage(output, 'Semantic Data', `Error: ${err.message}`);
         el.setAttribute('color', '#FB24FF');
       }
     });
