@@ -1,0 +1,11 @@
+Ask Codex for a change (diff/rewrite)
+Apply locally (paste/save)
+git status (must show modified)
+git add → git commit
+git push
+(Optional) PR → merge
+VPS: git pull
+Browser: hard refresh
+
+https://github.com/settings/tokens // for the password
+http://69.48.163.69:3030/#/  //for fuseki semantic frontend
