@@ -1,4 +1,4 @@
-const SPARQL_ENDPOINT = "http://69.48.163.69:3030/dnd/sparql";
+const SPARQL_ENDPOINT = "http://69.48.163.69:3030/dnd/query";
 
 AFRAME.registerComponent('semantic-trigger', {
   schema: {
