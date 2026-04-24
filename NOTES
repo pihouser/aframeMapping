@@ -1,10 +1,13 @@
-Ask Codex for a change (diff/rewrite)
-Apply locally (paste/save)
+CODEX: Ask Codex for a change (diff/rewrite)
+LOCAL: Apply locally (paste/save)
 git status (must show modified)
 git add → git commit
 git push
 (Optional) PR → merge
-VPS: git pull
+
+SFTP: copy local to vps
+VPS: copy temp location to vps main
+
 Browser: hard refresh
 
 https://github.com/settings/tokens // for the password

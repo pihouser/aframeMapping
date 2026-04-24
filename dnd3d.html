@@ -17,24 +17,32 @@
   <!-- Your JS -->
   <script src="/js/semantic-trigger.js"></script>
   <script src="/js/poi-label.js"></script>
+  
   <!-- Firefox fix -->
   <script>
+window.addEventListener('DOMContentLoaded', () => {
   const scene = document.querySelector('a-scene');
+  if (!scene) return;
 
+  // allow scene to receive focus on click
   scene.addEventListener('click', () => scene.focus());
 
   scene.addEventListener('loaded', () => {
     const canvas = scene.canvas;
+    if (!canvas) return;
+
     canvas.setAttribute('tabindex', '0');
     canvas.addEventListener('click', () => canvas.focus());
   });
 
+  // prevent browser from hijacking WASD keys
   window.addEventListener('keydown', (e) => {
     if (['w','a','s','d'].includes(e.key.toLowerCase())) {
       e.preventDefault();
     }
   });
-  </script>
+});
+</script>
 
   <!-- Coordinate Reader -->
   <script>

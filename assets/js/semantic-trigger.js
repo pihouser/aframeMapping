@@ -70,14 +70,6 @@ AFRAME.registerComponent('semantic-trigger', {
       const ignoredNamespaces = ['rdf-syntax-ns#', '/owl#'];
       const ignoredPredicates = new Set(['type', 'label', 'comment', 'seeAlso', 'sameAs']);
 
-      const getLocalName = (iri) => {
-        if (!iri) return '';
-        const hash = iri.lastIndexOf('#');
-        const slash = iri.lastIndexOf('/');
-        const idx = Math.max(hash, slash);
-        return idx >= 0 ? iri.slice(idx + 1) : iri;
-      };
-
       const grouped = {
         Region: [],
         Faction: [],
@@ -85,21 +77,27 @@ AFRAME.registerComponent('semantic-trigger', {
       };
 
       bindings.forEach((binding) => {
-        const predicate = binding.p?.value || '';
-        const localName = getLocalName(predicate);
+        const row = {
+          p: binding.p || { value: '' },
+          o: binding.o,
+          label: binding.label
+        };
+
+        const predicate = row.p.value || '';
+        const pred = row.p.value.split('#').pop();
 
         const isIgnoredNamespace = ignoredNamespaces.some((ns) => predicate.includes(ns));
-        if (isIgnoredNamespace || ignoredPredicates.has(localName)) {
+        if (isIgnoredNamespace || ignoredPredicates.has(pred)) {
           return;
         }
 
-        const label = predicateLabels[localName];
+        const label = predicateLabels[pred];
         if (!label) {
           return;
         }
 
-        const objectValue = binding.o?.value || '(no object)';
-        const labelValue = binding.label?.value;
+        const objectValue = row.o?.value || '(no object)';
+        const labelValue = row.label?.value;
         const displayValue = labelValue ? `${objectValue} (${labelValue})` : objectValue;
         grouped[label].push(displayValue);
       });
