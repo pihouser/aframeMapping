@@ -1,11 +1,19 @@
-Ask Codex for a change (diff/rewrite)
-Apply locally (paste/save)
+CODEX: Ask Codex for a change (diff/rewrite)
+LOCAL: Apply locally (paste/save)
 git status (must show modified)
 git add → git commit
 git push
 (Optional) PR → merge
-VPS: git pull
+
+SFTP: copy local to vps
+VPS: copy temp location to vps main
+
 Browser: hard refresh
 
 https://github.com/settings/tokens // for the password
 http://69.48.163.69:3030/#/  //for fuseki semantic frontend
+
+
+DND Foundry VTT
+cd ~/foundryvtt/
+node main.js --dataPath=$HOME/foundrydata &
