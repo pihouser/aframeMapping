@@ -14,35 +14,34 @@
   <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.min.js"></script>
 
-  <!-- Your JS -->
+  <!-- YOUR JS (ORDER MATTERS) -->
+  <script src="/assets/js/semantic-graph.js"></script>
   <script src="/assets/js/semantic-trigger.js"></script>
   <script src="/assets/js/poi-label.js"></script>
 
-  <!-- Firefox fix -->
+  <!-- Firefox / focus fix -->
   <script>
-window.addEventListener('DOMContentLoaded', () => {
-  const scene = document.querySelector('a-scene');
-  if (!scene) return;
+  window.addEventListener('DOMContentLoaded', () => {
+    const scene = document.querySelector('a-scene');
+    if (!scene) return;
 
-  // allow scene to receive focus on click
-  scene.addEventListener('click', () => scene.focus());
+    scene.addEventListener('click', () => scene.focus());
 
-  scene.addEventListener('loaded', () => {
-    const canvas = scene.canvas;
-    if (!canvas) return;
+    scene.addEventListener('loaded', () => {
+      const canvas = scene.canvas;
+      if (!canvas) return;
 
-    canvas.setAttribute('tabindex', '0');
-    canvas.addEventListener('click', () => canvas.focus());
+      canvas.setAttribute('tabindex', '0');
+      canvas.addEventListener('click', () => canvas.focus());
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (['w','a','s','d'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+    });
   });
-
-  // prevent browser from hijacking WASD keys
-  window.addEventListener('keydown', (e) => {
-    if (['w','a','s','d'].includes(e.key.toLowerCase())) {
-      e.preventDefault();
-    }
-  });
-});
-</script>
+  </script>
 
   <!-- Coordinate Reader -->
   <script>
@@ -62,7 +61,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
       const hit = hits[0];
 
-      // Only track terrain
       if (!hit.object.el.classList.contains('raycastable')) return;
 
       const p = hit.point;
@@ -96,17 +94,22 @@ window.addEventListener('DOMContentLoaded', () => {
 <body>
 
 <div class="hud">
-  <div id="semantic-output" style="margin-top:10px;"></div>
+  <div id="semantic-output" style="margin-bottom:10px;">
+    <b>Semantic Data</b><br>
+    Click a POI
+  </div>
+
   <div><b>Controls</b></div>
   <div>W/A/S/D = move</div>
   <div>Mouse = look</div>
-  <div> X = E/W, Y = Elevation, Z = N/S</div>
+  <div>X = E/W, Y = Elevation, Z = N/S</div>
+
   <div id="coords">
     X: 0 | Y: 0 | Z: 0
   </div>
 </div>
 
-<a-scene renderer="colorManagement: true" background="color: #20252b">
+<a-scene semantic-graph renderer="colorManagement: true" background="color: #20252b">
 
   <!-- Assets -->
   <a-assets>
@@ -125,7 +128,10 @@ window.addEventListener('DOMContentLoaded', () => {
       wasd-controls="enabled: true"
       look-controls="pointerLockEnabled: true"
       tabindex="0">
-      <a-cursor raycaster="objects: .raycastable, .clickable; far: 100"></a-cursor>
+      <a-cursor
+       fuse="false"
+       raycaster="objects: .raycastable, .clickable; far: 100">
+     </a-cursor>
     </a-camera>
   </a-entity>
 
@@ -147,7 +153,7 @@ window.addEventListener('DOMContentLoaded', () => {
   <a-box position="0 0.05 -7" width="0.03" height="0.03" depth="2" color="#3399ff"></a-box>
 
   <!-- Map -->
-  <a-entity id="map-root" position="0 0 0" rotation="0 0 0" scale="0.14 0.14 0.14">
+  <a-entity id="map-root" position="0 0 0" scale="0.14 0.14 0.14">
     <a-entity
       gltf-model="#map-textured"
       class="raycastable"
@@ -158,8 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
   <!-- POI -->
   <a-sphere
     id="poi-baldurs-gate"
-    class="clickable"
-    class="raycastable"
+    class="clickable raycastable"
     position="-0.894 0.4 4.35"
     radius="0.1"
     color="#FF0000"
@@ -171,7 +176,6 @@ window.addEventListener('DOMContentLoaded', () => {
   </a-sphere>
 
 </a-scene>
-
 
 </body>
 </html>
